@@ -114,39 +114,58 @@ function MacBook({ index, activeIndex, texturePath }: { index: number; activeInd
     const clone = scene.clone(true)
     
     if (texture) {
-      // Diese Einstellungen zwingen die Textur, sich richtig zu verhalten
       texture.flipY = false 
       texture.colorSpace = THREE.SRGBColorSpace
-      
-      // Falls das Bild zu klein/verschoben ist, hier anpassen:
       texture.wrapS = THREE.ClampToEdgeWrapping
       texture.wrapT = THREE.ClampToEdgeWrapping
-      // Manchmal hilft es, die Wiederholung leicht anzupassen, falls die UVs kaputt sind
       texture.repeat.set(1, 1) 
       texture.needsUpdate = true
     }
 
+    // Log mesh names once per model for debugging
+    if (index === 0) {
+      clone.traverse((child: any) => {
+        if (child.isMesh) {
+          console.log("[v0] Mesh found:", child.name, "Material:", child.material?.name)
+        }
+      })
+    }
+
     clone.traverse((child: any) => {
       if (child.isMesh) {
-        // Wir prüfen sowohl Namen als auch Material-Namen aus der Datei
-        const isScreen = child.name === "Cube010_4" || child.material.name === "LCD"
-        const isGlass = child.name === "Cube010_5" || child.material.name === "Display glass"
+        const meshName = child.name?.toLowerCase() || ""
+        const matName = child.material?.name?.toLowerCase() || ""
+        
+        // Broader matching for screen detection
+        const isScreen = 
+          meshName.includes("screen") || 
+          meshName.includes("lcd") || 
+          meshName.includes("display") ||
+          meshName.includes("cube010_4") ||
+          matName.includes("lcd") ||
+          matName.includes("screen") ||
+          matName.includes("display") ||
+          matName.includes("emissive") ||
+          child.name === "Cube010_4"
+        
+        const isGlass = 
+          meshName.includes("glass") || 
+          meshName.includes("cube010_5") ||
+          matName.includes("glass") ||
+          child.name === "Cube010_5"
 
-        if (isScreen) {
-          // Wir nutzen MeshBasicMaterial, damit keine Schatten das Bild verfälschen
+        if (isScreen && texture) {
+          console.log("[v0] Applying texture to screen mesh:", child.name)
           child.material = new THREE.MeshBasicMaterial({ 
             map: texture,
-            side: THREE.FrontSide,
-            transparent: false
+            side: THREE.DoubleSide,
+            transparent: false,
+            toneMapped: false
           })
-          
-          // WICHTIG: Falls das Mesh im Modell komische UV-Koordinaten hat,
-          // erzwingen wir hier, dass das Material die Textur beachtet
-          child.material.map.needsUpdate = true
+          child.material.needsUpdate = true
         }
         
         if (isGlass) {
-          // Glas ausschalten, damit es das Bild nicht überdeckt
           child.visible = false 
         }
       }
@@ -340,11 +359,11 @@ export function SpielmodeSection() {
           </div>
         </div>
 
-        <div className="absolute inset-0 hidden md:relative md:block md:w-1/2 h-100vh z-1000">
+        <div className="absolute inset-0 hidden md:relative md:block md:w-1/2 h-screen">
           <Canvas
-            camera={{ position: [0, 0.8, 1.8], fov: 40 }}
+            camera={{ position: [0, 0.3, 2.8], fov: 50 }}
             gl={{ antialias: true, alpha: true }}
-            style={{ background: "transparent" }}
+            style={{ background: "transparent", width: "100%", height: "100%" }}
           >
             <Suspense fallback={null}>
               <Scene activeIndex={activeIndex} />
