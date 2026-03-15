@@ -2,9 +2,16 @@
 
 import { Suspense, useRef, useState, useEffect, useMemo } from "react"
 import { Canvas, useFrame } from "@react-three/fiber"
-import { useGLTF, Environment, Float } from "@react-three/drei"
+import { useGLTF, Environment } from "@react-three/drei"
 import * as THREE from "three"
 import Image from "next/image"
+
+// Suppress THREE.Clock deprecation warning (R3F internal usage)
+const originalWarn = console.warn
+console.warn = (...args) => {
+  if (typeof args[0] === 'string' && args[0].includes('THREE.Clock')) return
+  originalWarn.apply(console, args)
+}
 
 const spielmodiData = [
   {
