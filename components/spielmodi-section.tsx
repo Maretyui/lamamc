@@ -88,7 +88,7 @@ function ScreenMesh({ texturePath }: { texturePath: string }) {
   const texture = useTexture(texturePath)
   if (texture) {
     texture.flipY = false
-    texture.encoding = THREE.sRGBColorSpace
+    texture.colorSpace = THREE.SRGBColorSpace
   }
   return (
     <mesh position={[0, 0.001, 0]}>
