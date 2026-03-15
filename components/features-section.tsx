@@ -9,35 +9,42 @@ const servers = [
     description:
       "Erlebe klassisches Survival mit Custom Items, Clans und einer lebendigen Welt.",
     image: "/images/servers/survival.png",
-    players: "20",
+    version: "1.21.10",
   },
   {
     name: "GoldPVP",
     description:
       "Kämpfe in einem PvP-Modus um Gold-Coins zum Gear-Upgrade.",
     image: "/images/servers/goldpvp.png",
-    players: "6",
+    version: "1.8.9",
   },
   {
     name: "Duels",
     description:
       "Fordere Freunde zu spannenden 1v1-Duellen heraus und verbessere deine Skills.",
     image: "/images/servers/duels.png",
-    players: "4",
+    version: "1.21.11",
   },
   {
     name: "Realms",
     description:
       "Baue und teile deine eigene Welt mit Freunden in unserem Realms-Modus.",
     image: "/images/servers/realms.png",
-    players: "12",
+    version: "1.21.10",
   },
   {
     name: "Lobby",
     description:
       "Treffe andere Spieler, chatte und bereite dich auf deine Abenteuer vor.",
     image: "/images/servers/lobby.png",
-    players: "192",
+    version: "1.21.10",
+  },
+  {
+    name: "xxx",
+    description:
+      "Hierfür hast du nicht die nötigen Berechtigungen ...",
+    image: "/images/servers/image.png",
+    version: "1.21.x",
   },
 ]
 
@@ -48,14 +55,14 @@ export function FeaturesSection() {
     <section id="features" className="bg-background px-4 py-24 md:px-8">
       <div className="mx-auto max-w-6xl">
         <div className="mb-16 text-center">
-          <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-primary">
+          {/* <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-primary">
             Spielmodi
-          </p>
-          <h2 className="text-balance text-4xl font-bold tracking-tight md:text-5xl">
-            Unsere Server
+          </p> */}
+          <h2 className="text-primary text-4xl font-bold tracking-tight md:text-5xl">
+            Spielmodi
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-pretty text-muted-foreground">
-            Entdecke unsere vielfaeltigen Spielmodi und finde deinen Favoriten.
+            Entdecke unsere vielfältigen Spielmodi und finde deinen Favoriten.
           </p>
         </div>
 
@@ -80,7 +87,7 @@ export function FeaturesSection() {
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-card via-card/20 to-transparent" />
                 <div className="absolute bottom-3 right-3 rounded-md bg-primary/90 px-3 py-1 text-xs font-semibold text-primary-foreground backdrop-blur-sm">
-                  {server.players} Spieler
+                  {server.version}
                 </div>
               </div>
               <div className="p-5">

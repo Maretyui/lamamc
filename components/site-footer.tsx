@@ -19,9 +19,11 @@ export function SiteFooter() {
             LamaMC.net
           </span>
         </div>
-
+        <p className="text-sm">
+          {"LamaMC.net ist nicht mit Mojang Studios verbunden. \u00A9 2026 Maretyui"}
+        </p>
         <nav
-          className="flex flex-wrap items-center justify-center gap-6 text-sm"
+          className="flex flex-wrap items-center justify-center gap-6 text-sm "
           aria-label="Footer Navigation"
         >
           <Link
@@ -38,18 +40,12 @@ export function SiteFooter() {
           </Link>
           <Link
             href="/login"
-            className="flex items-center gap-2 rounded-lg bg-primary px-5 py-2 font-medium text-primary-foreground transition-all hover:bg-primary/90"
+            className="text-muted-foreground"
           >
-            <LogIn className="h-4 w-4" />
             Login
           </Link>
         </nav>
-      </div>
-
-      <div className="mx-auto mt-8 max-w-6xl text-center text-xs text-muted-foreground">
-        <p>
-          {"LamaMC.net ist nicht mit Mojang Studios verbunden. \u00A9 2026 Maretyui"}
-        </p>
+        
       </div>
     </footer>
   )
