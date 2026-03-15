@@ -118,7 +118,10 @@ function MacBook({ index, activeIndex, texturePath }: { index: number; activeInd
       texture.colorSpace = THREE.SRGBColorSpace
       texture.wrapS = THREE.ClampToEdgeWrapping
       texture.wrapT = THREE.ClampToEdgeWrapping
-      texture.repeat.set(1, 1) 
+      texture.repeat.set(1, 1)
+      texture.magFilter = THREE.LinearFilter
+      texture.minFilter = THREE.LinearMipmapLinearFilter
+      texture.anisotropy = 16
       texture.needsUpdate = true
     }
 
@@ -361,8 +364,8 @@ export function SpielmodeSection() {
 
         <div className="absolute inset-0 hidden md:relative md:block md:w-1/2 h-screen">
           <Canvas
-            camera={{ position: [0, -0.5, 4.2], fov: 35 }}
-            gl={{ antialias: true, alpha: true }}
+            camera={{ position: [0, 0.4, 4.5], fov: 35 }}
+            gl={{ antialias: true, alpha: true, dpr: [1, 2] }}
             style={{ background: "transparent", width: "100%", height: "100%" }}
           >
             <Suspense fallback={null}>
