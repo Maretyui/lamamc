@@ -259,7 +259,7 @@ export function SpielmodeSection() {
       const progress = Math.max(0, Math.min(1, scrolled / totalScrollable))
       const newActiveIndex = Math.min(
         spielmodiData.length - 1,
-        Math.floor(progress * spielmodiData.length)
+        Math.floor(progress * spielmodiData.length * 0.6)
       )
       setActiveIndex(newActiveIndex)
     }
@@ -362,7 +362,7 @@ export function SpielmodeSection() {
           </div>
         </div>
 
-        <div className="hidden md:block md:w-1/2 h-screen flex-shrink-0 overflow-hidden">
+        <div className="absolute right-0 top-0 hidden md:block w-1/2 h-screen overflow-hidden">
           <Canvas
             camera={{ position: [0, 0.4, 4.5], fov: 35 }}
             gl={{ antialias: true, alpha: true, dpr: [1, 2] }}
