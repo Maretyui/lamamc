@@ -53,6 +53,7 @@ interface MacBookProps {
 
 function MacBook({ index, activeIndex, scrollProgress }: MacBookProps) {
   const groupRef = useRef<THREE.Group>(null)
+  const timeRef = useRef(0)
   const { scene } = useGLTF("/Mac.glb")
   
   // Create a unique clone for each MacBook
@@ -71,8 +72,11 @@ function MacBook({ index, activeIndex, scrollProgress }: MacBookProps) {
   const isPast = index < activeIndex
   const isFuture = index > activeIndex
 
-  useFrame((state, delta) => {
+  useFrame((_, delta) => {
     if (!groupRef.current) return
+    
+    // Accumulate time manually to avoid THREE.Clock deprecation
+    timeRef.current += delta
 
     // Target positions
     let targetY = 0
@@ -86,7 +90,7 @@ function MacBook({ index, activeIndex, scrollProgress }: MacBookProps) {
       targetY = 0
       targetZ = 0
       targetRotationX = -0.1
-      targetRotationY = Math.sin(state.clock.elapsedTime * 0.5) * 0.05
+      targetRotationY = Math.sin(timeRef.current * 0.5) * 0.05
       targetScale = 1
     } else if (isPast) {
       // Past MacBooks - move up and back
