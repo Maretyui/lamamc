@@ -361,7 +361,7 @@ export function SpielmodeSection() {
 
         <div className="absolute inset-0 hidden md:relative md:block md:w-1/2 h-screen">
           <Canvas
-            camera={{ position: [0, 0.3, 2.8], fov: 50 }}
+            camera={{ position: [0, -0.5, 4.2], fov: 35 }}
             gl={{ antialias: true, alpha: true }}
             style={{ background: "transparent", width: "100%", height: "100%" }}
           >
