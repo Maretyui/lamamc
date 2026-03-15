@@ -192,14 +192,14 @@ function MacBook({ index, activeIndex, texturePath }: { index: number; activeInd
       targetRotationY = Math.sin(timeRef.current * 0.5) * 0.03
     } else if (index < activeIndex) {
       const offset = activeIndex - index
-      targetY = 2.5 + offset * 0.6
-      targetZ = -2.5 - offset * 0.6
+      targetY = 4 + offset * 1.5
+      targetZ = -4 - offset * 1.0
       targetRotationX = -0.9
       targetScale = 4
     } else {
       const offset = index - activeIndex
-      targetY = -1.8 - offset * 0.35
-      targetZ = -0.6 - offset * 0.6
+      targetY = -5 - offset * 1.5
+      targetZ = -4 - offset * 1.0
       targetRotationX = 0.25
       targetScale = 4.8
     }
@@ -288,7 +288,7 @@ export function SpielmodeSection() {
       className="relative bg-background"
       style={{ height: `${spielmodiData.length * 100 + 50}vh` }}
     >
-      <div className="sticky top-0 flex h-screen items-center overflow-hidden">
+      <div className="sticky top-0 flex h-screen w-full items-center overflow-hidden">
         <div className="z-10 w-full px-6 md:w-1/2 md:px-12 lg:px-20">
           <div className="max-w-xl">
             <p className="mb-6 text-sm font-semibold uppercase tracking-widest text-primary">
@@ -362,7 +362,7 @@ export function SpielmodeSection() {
           </div>
         </div>
 
-        <div className="absolute inset-0 hidden md:relative md:block md:w-1/2 h-screen">
+        <div className="hidden md:block md:w-1/2 h-screen flex-shrink-0 overflow-hidden">
           <Canvas
             camera={{ position: [0, 0.4, 4.5], fov: 35 }}
             gl={{ antialias: true, alpha: true, dpr: [1, 2] }}
