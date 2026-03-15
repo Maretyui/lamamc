@@ -176,7 +176,7 @@ function MacBook({ index, activeIndex, texturePath }: { index: number; activeInd
     if (!groupRef.current) return
     timeRef.current += delta
 
-    let targetY = -0.15
+    let targetY = -0.2
     let targetZ = 0
     let targetRotationX = 0
     let targetRotationY = 0
