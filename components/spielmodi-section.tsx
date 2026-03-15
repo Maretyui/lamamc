@@ -6,7 +6,6 @@ import { useGLTF, Environment, useTexture } from "@react-three/drei"
 import * as THREE from "three"
 import Image from "next/image"
 
-// Suppress THREE.Clock deprecation warning (R3F internal usage)
 const originalWarn = console.warn
 console.warn = (...args: unknown[]) => {
   if (typeof args[0] === "string" && args[0].includes("THREE.Clock")) return
@@ -93,9 +92,9 @@ function ScreenMesh({ texturePath }: { texturePath: string }) {
   return (
     <mesh position={[0, 0.001, 0]}>
       <planeGeometry args={[1, 1]} />
-      <meshBasicMaterial 
-        map={texture} 
-        transparent 
+      <meshBasicMaterial
+        map={texture}
+        transparent
         toneMapped={false}
       />
     </mesh>
@@ -105,16 +104,15 @@ function ScreenMesh({ texturePath }: { texturePath: string }) {
 function MacBook({ index, activeIndex, texturePath }: { index: number; activeIndex: number; texturePath: string }) {
   const groupRef = useRef<THREE.Group>(null)
   const timeRef = useRef(0)
-  
-  // Modell und Textur laden
+
   const { scene } = useGLTF("/Mac.glb") as any
   const texture = useTexture(texturePath)
-  
+
   const clonedScene = useMemo(() => {
     const clone = scene.clone(true)
-    
+
     if (texture) {
-      texture.flipY = false 
+      texture.flipY = false
       texture.colorSpace = THREE.SRGBColorSpace
       texture.wrapS = THREE.ClampToEdgeWrapping
       texture.wrapT = THREE.ClampToEdgeWrapping
@@ -125,7 +123,6 @@ function MacBook({ index, activeIndex, texturePath }: { index: number; activeInd
       texture.needsUpdate = true
     }
 
-    // Log mesh names once per model for debugging
     if (index === 0) {
       clone.traverse((child: any) => {
         if (child.isMesh) {
@@ -138,11 +135,10 @@ function MacBook({ index, activeIndex, texturePath }: { index: number; activeInd
       if (child.isMesh) {
         const meshName = child.name?.toLowerCase() || ""
         const matName = child.material?.name?.toLowerCase() || ""
-        
-        // Broader matching for screen detection
-        const isScreen = 
-          meshName.includes("screen") || 
-          meshName.includes("lcd") || 
+
+        const isScreen =
+          meshName.includes("screen") ||
+          meshName.includes("lcd") ||
           meshName.includes("display") ||
           meshName.includes("cube010_4") ||
           matName.includes("lcd") ||
@@ -150,16 +146,16 @@ function MacBook({ index, activeIndex, texturePath }: { index: number; activeInd
           matName.includes("display") ||
           matName.includes("emissive") ||
           child.name === "Cube010_4"
-        
-        const isGlass = 
-          meshName.includes("glass") || 
+
+        const isGlass =
+          meshName.includes("glass") ||
           meshName.includes("cube010_5") ||
           matName.includes("glass") ||
           child.name === "Cube010_5"
 
         if (isScreen && texture) {
           console.log("[v0] Applying texture to screen mesh:", child.name)
-          child.material = new THREE.MeshBasicMaterial({ 
+          child.material = new THREE.MeshBasicMaterial({
             map: texture,
             side: THREE.DoubleSide,
             transparent: false,
@@ -167,21 +163,20 @@ function MacBook({ index, activeIndex, texturePath }: { index: number; activeInd
           })
           child.material.needsUpdate = true
         }
-        
+
         if (isGlass) {
-          child.visible = false 
+          child.visible = false
         }
       }
     })
     return clone
   }, [scene, texture])
 
-  // Animationen (bleiben wie von dir gewünscht)
   useFrame((state, delta) => {
     if (!groupRef.current) return
     timeRef.current += delta
 
-    let targetY = 0
+    let targetY = -0.15
     let targetZ = 0
     let targetRotationX = 0
     let targetRotationY = 0
@@ -299,11 +294,10 @@ export function SpielmodeSection() {
               {spielmodiData.map((item, index) => (
                 <div
                   key={item.id}
-                  className={`transition-all duration-700 ease-out ${
-                    index === activeIndex
-                      ? "translate-y-0 opacity-100"
-                      : "pointer-events-none absolute inset-0 translate-y-8 opacity-0"
-                  }`}
+                  className={`transition-all duration-700 ease-out ${index === activeIndex
+                    ? "translate-y-0 opacity-100"
+                    : "pointer-events-none absolute inset-0 translate-y-8 opacity-0"
+                    }`}
                 >
                   <h2
                     className="mb-3 text-xl font-bold md:text-2xl"
@@ -332,9 +326,8 @@ export function SpielmodeSection() {
                     src={item.image}
                     alt={item.title}
                     fill
-                    className={`object-cover transition-opacity duration-500 ${
-                      index === activeIndex ? "opacity-100" : "opacity-0"
-                    }`}
+                    className={`object-cover transition-opacity duration-500 ${index === activeIndex ? "opacity-100" : "opacity-0"
+                      }`}
                   />
                 ))}
               </div>
