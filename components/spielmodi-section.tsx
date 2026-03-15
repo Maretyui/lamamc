@@ -210,11 +210,11 @@ function MacBook({ index, activeIndex, texturePath }: MacBookProps) {
       texture.flipY = false
       texture.colorSpace = THREE.SRGBColorSpace
       texture.needsUpdate = true
-      const mat = new THREE.MeshBasicMaterial({ 
+      const mat = new THREE.MeshBasicMaterial({
         map: texture,
-        toneMapped: false 
+        toneMapped: false
       })
-      ;(screenMesh as THREE.Mesh).material = mat
+        ; (screenMesh as THREE.Mesh).material = mat
     } else if (index === 0) {
       console.log("[v0] No screen mesh found, applying to first large mesh")
       // Fallback: find the largest flat mesh (likely the screen)
@@ -243,11 +243,11 @@ function MacBook({ index, activeIndex, texturePath }: MacBookProps) {
         texture.flipY = false
         texture.colorSpace = THREE.SRGBColorSpace
         texture.needsUpdate = true
-        const mat = new THREE.MeshBasicMaterial({ 
+        const mat = new THREE.MeshBasicMaterial({
           map: texture,
-          toneMapped: false 
+          toneMapped: false
         })
-        ;(largestMesh as THREE.Mesh).material = mat
+          ; (largestMesh as THREE.Mesh).material = mat
       }
     }
   }, [screenMesh, texture, clonedScene, index])
@@ -343,11 +343,10 @@ export function SpielmodeSection() {
               {spielmodiData.map((item, index) => (
                 <div
                   key={item.id}
-                  className={`transition-all duration-700 ease-out ${
-                    index === activeIndex
-                      ? "translate-y-0 opacity-100"
-                      : "pointer-events-none absolute inset-0 translate-y-8 opacity-0"
-                  }`}
+                  className={`transition-all duration-700 ease-out ${index === activeIndex
+                    ? "translate-y-0 opacity-100"
+                    : "pointer-events-none absolute inset-0 translate-y-8 opacity-0"
+                    }`}
                 >
                   <h2
                     className="mb-3 text-xl font-bold md:text-2xl"
@@ -377,9 +376,8 @@ export function SpielmodeSection() {
                     src={item.image}
                     alt={item.title}
                     fill
-                    className={`object-cover transition-opacity duration-500 ${
-                      index === activeIndex ? "opacity-100" : "opacity-0"
-                    }`}
+                    className={`object-cover transition-opacity duration-500 ${index === activeIndex ? "opacity-100" : "opacity-0"
+                      }`}
                   />
                 ))}
               </div>
@@ -410,7 +408,7 @@ export function SpielmodeSection() {
 
         {/* Right: 3D Canvas */}
         <div className="absolute inset-0 hidden md:relative md:flex md:w-1/2 md:items-center md:justify-center" style={{ minHeight: '100vh' }}>
-          <div className="h-full w-full" style={{ height: '120vh', marginTop: '-10vh' }}>
+          <div className="h-full w-full" style={{ height: '120vh', marginTop: '0' }}>
             <Canvas
               camera={{ position: [0, 0.5, 2.2], fov: 45 }}
               gl={{ antialias: true, alpha: true }}
