@@ -408,7 +408,7 @@ export function SpielmodeSection() {
 
         {/* Right: 3D Canvas */}
         <div className="absolute inset-0 hidden md:relative md:flex md:w-1/2 md:items-center md:justify-center" style={{ minHeight: '100vh' }}>
-          <div className="h-full w-full" style={{ height: '120vh', marginTop: '0' }}>
+          <div className="h-full w-full" style={{ height: '80vh', marginTop: '0' }}>
             <Canvas
               camera={{ position: [0, 0.5, 2.2], fov: 45 }}
               gl={{ antialias: true, alpha: true }}
