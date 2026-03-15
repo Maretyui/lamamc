@@ -114,11 +114,24 @@ function MacBook({ index, activeIndex, texturePath }: { index: number; activeInd
     const clone = scene.clone(true)
     
     if (texture) {
+      texture.flipY = false 
       texture.colorSpace = THREE.SRGBColorSpace
+      texture.wrapS = THREE.ClampToEdgeWrapping
+      texture.wrapT = THREE.ClampToEdgeWrapping
+      texture.repeat.set(1, 1)
       texture.magFilter = THREE.LinearFilter
       texture.minFilter = THREE.LinearMipmapLinearFilter
       texture.anisotropy = 16
       texture.needsUpdate = true
+    }
+
+    // Log mesh names once per model for debugging
+    if (index === 0) {
+      clone.traverse((child: any) => {
+        if (child.isMesh) {
+          console.log("[v0] Mesh found:", child.name, "Material:", child.material?.name)
+        }
+      })
     }
 
     clone.traverse((child: any) => {
@@ -126,6 +139,7 @@ function MacBook({ index, activeIndex, texturePath }: { index: number; activeInd
         const meshName = child.name?.toLowerCase() || ""
         const matName = child.material?.name?.toLowerCase() || ""
         
+        // Broader matching for screen detection
         const isScreen = 
           meshName.includes("screen") || 
           meshName.includes("lcd") || 
@@ -144,19 +158,10 @@ function MacBook({ index, activeIndex, texturePath }: { index: number; activeInd
           child.name === "Cube010_5"
 
         if (isScreen && texture) {
-          // Compute the bounding box to find screen UV scale/offset
-          child.geometry.computeBoundingBox()
-          const screenTex = texture.clone()
-          screenTex.needsUpdate = true
-          screenTex.colorSpace = THREE.SRGBColorSpace
-          screenTex.magFilter = THREE.LinearFilter
-          screenTex.minFilter = THREE.LinearMipmapLinearFilter
-          screenTex.anisotropy = 16
-          // Keep flipY matching the mesh's UV convention
-          screenTex.flipY = child.geometry.attributes.uv ? true : false
+          console.log("[v0] Applying texture to screen mesh:", child.name)
           child.material = new THREE.MeshBasicMaterial({ 
-            map: screenTex,
-            side: THREE.FrontSide,
+            map: texture,
+            side: THREE.DoubleSide,
             transparent: false,
             toneMapped: false
           })
@@ -183,7 +188,6 @@ function MacBook({ index, activeIndex, texturePath }: { index: number; activeInd
     let targetScale = 5.5
 
     if (index === activeIndex) {
-      targetY = -0.15
       targetRotationX = -0.05
       targetRotationY = Math.sin(timeRef.current * 0.5) * 0.03
     } else if (index < activeIndex) {
@@ -360,7 +364,7 @@ export function SpielmodeSection() {
 
         <div className="hidden md:block md:w-1/2 h-screen flex-shrink-0 overflow-hidden">
           <Canvas
-            camera={{ position: [0, 0, 4.5], fov: 35 }}
+            camera={{ position: [0, 0.4, 4.5], fov: 35 }}
             gl={{ antialias: true, alpha: true, dpr: [1, 2] }}
             style={{ background: "transparent", width: "100%", height: "100%" }}
           >
