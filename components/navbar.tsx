@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { Menu, X } from "lucide-react"
+import { Menu, X, Copy, Check } from "lucide-react"
 
 const navLinks = [
   { href: "#hero", label: "Home" },
@@ -16,6 +16,7 @@ const navLinks = [
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isCopied, setIsCopied] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,6 +25,12 @@ export function Navbar() {
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
+
+  const handleCopyIP = async () => {
+    await navigator.clipboard.writeText("LamaMC.net")
+    setIsCopied(true)
+    setTimeout(() => setIsCopied(false), 2000)
+  }
 
   return (
     <header
@@ -65,12 +72,22 @@ export function Navbar() {
 
         {/* CTA Button */}
         <div className="hidden md:block">
-          <Link
-            href="#hero"
-            className="rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/25"
+          <button
+            onClick={handleCopyIP}
+            className="flex items-center gap-2 rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/25"
           >
-            Jetzt Spielen
-          </Link>
+            {isCopied ? (
+              <>
+                <Check className="h-4 w-4" />
+                Kopiert!
+              </>
+            ) : (
+              <>
+                <Copy className="h-4 w-4" />
+                Jetzt Spielen
+              </>
+            )}
+          </button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -105,13 +122,25 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <Link
-              href="#hero"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="mt-2 rounded-full bg-primary px-6 py-3 text-center text-sm font-semibold text-primary-foreground transition-all hover:bg-primary/90"
+            <button
+              onClick={() => {
+                handleCopyIP()
+                setIsMobileMenuOpen(false)
+              }}
+              className="mt-2 flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all hover:bg-primary/90"
             >
-              Jetzt Spielen
-            </Link>
+              {isCopied ? (
+                <>
+                  <Check className="h-4 w-4" />
+                  Kopiert!
+                </>
+              ) : (
+                <>
+                  <Copy className="h-4 w-4" />
+                  Jetzt Spielen
+                </>
+              )}
+            </button>
           </div>
         </div>
       </div>

@@ -5,7 +5,6 @@ import { Canvas, useFrame, useThree } from "@react-three/fiber"
 import { useGLTF, Environment, useTexture } from "@react-three/drei"
 import * as THREE from "three"
 import Image from "next/image"
-import { Copy, Check } from "lucide-react"
 
 // Suppress THREE.Clock deprecation warning (R3F internal usage)
 const originalWarn = console.warn
@@ -87,11 +86,18 @@ interface MacBookProps {
 
 function ScreenMesh({ texturePath }: { texturePath: string }) {
   const texture = useTexture(texturePath)
-  texture.flipY = false
+  if (texture) {
+    texture.flipY = false
+    texture.encoding = THREE.sRGBColorSpace
+  }
   return (
     <mesh position={[0, 0.001, 0]}>
       <planeGeometry args={[1, 1]} />
-      <meshBasicMaterial map={texture} transparent />
+      <meshBasicMaterial 
+        map={texture} 
+        transparent 
+        toneMapped={false}
+      />
     </mesh>
   )
 }
@@ -214,9 +220,9 @@ function MacBook({ index, activeIndex, texturePath }: MacBookProps) {
   return (
     <group
       ref={groupRef}
-      position={[0, -1.8 - index * 0.35, -0.6 - index * 0.6]}
+      position={[0, -0.8 - index * 0.2, -0.3 - index * 0.3]}
     >
-      <primitive object={clonedScene} scale={3.5} />
+      <primitive object={clonedScene} scale={5.5} />
     </group>
   )
 }
@@ -249,7 +255,6 @@ function Scene({
 export function SpielmodeSection() {
   const containerRef = useRef<HTMLDivElement>(null)
   const [activeIndex, setActiveIndex] = useState(0)
-  const [copied, setCopied] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -271,24 +276,6 @@ export function SpielmodeSection() {
     handleScroll()
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
-
-  const handleCopyIP = async () => {
-    try {
-      await navigator.clipboard.writeText(SERVER_IP)
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
-    } catch {
-      // Fallback for older browsers
-      const el = document.createElement("textarea")
-      el.value = SERVER_IP
-      document.body.appendChild(el)
-      el.select()
-      document.execCommand("copy")
-      document.body.removeChild(el)
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
-    }
-  }
 
   const scrollToIndex = (index: number) => {
     if (!containerRef.current) return
@@ -342,29 +329,6 @@ export function SpielmodeSection() {
                   <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
                     {item.description}
                   </p>
-
-                  {/* Jetzt spielen button */}
-                  <button
-                    onClick={handleCopyIP}
-                    className="mt-8 flex items-center gap-2 rounded-xl px-6 py-3 font-semibold text-sm transition-all duration-200 active:scale-95"
-                    style={{
-                      backgroundColor: item.color,
-                      color: "#0a0a0a",
-                    }}
-                    aria-label="Server-IP kopieren"
-                  >
-                    {copied ? (
-                      <>
-                        <Check className="h-4 w-4" />
-                        IP kopiert!
-                      </>
-                    ) : (
-                      <>
-                        <Copy className="h-4 w-4" />
-                        Jetzt spielen — {SERVER_IP}
-                      </>
-                    )}
-                  </button>
                 </div>
               ))}
             </div>
@@ -412,7 +376,7 @@ export function SpielmodeSection() {
         {/* Right: 3D Canvas */}
         <div className="absolute inset-0 hidden md:relative md:block md:w-1/2">
           <Canvas
-            camera={{ position: [0, 0.5, 4], fov: 50 }}
+            camera={{ position: [0, 0.8, 1.8], fov: 40 }}
             gl={{ antialias: true, alpha: true }}
             style={{ background: "transparent" }}
           >
