@@ -1,7 +1,7 @@
 "use client"
 
 import { Suspense, useRef, useState, useEffect, useMemo } from "react"
-import { Canvas, useFrame, useThree } from "@react-three/fiber"
+import { Canvas, useFrame } from "@react-three/fiber"
 import { useGLTF, Environment, useTexture } from "@react-three/drei"
 import * as THREE from "three"
 import Image from "next/image"
@@ -82,24 +82,6 @@ interface MacBookProps {
   index: number
   activeIndex: number
   texturePath: string
-}
-
-function ScreenMesh({ texturePath }: { texturePath: string }) {
-  const texture = useTexture(texturePath)
-  if (texture) {
-    texture.flipY = false
-    texture.colorSpace = THREE.SRGBColorSpace
-  }
-  return (
-    <mesh position={[0, 0.001, 0]}>
-      <planeGeometry args={[1, 1]} />
-      <meshBasicMaterial 
-        map={texture} 
-        transparent 
-        toneMapped={false}
-      />
-    </mesh>
-  )
 }
 
 function MacBook({ index, activeIndex, texturePath }: MacBookProps) {
@@ -191,31 +173,84 @@ function MacBook({ index, activeIndex, texturePath }: MacBookProps) {
   // Find the screen mesh in the GLB to project the texture on it
   const screenMesh = useMemo(() => {
     let found: THREE.Mesh | null = null
+    const meshes: string[] = []
     clonedScene.traverse((child) => {
       if ((child as THREE.Mesh).isMesh) {
+        meshes.push(child.name)
         const name = child.name.toLowerCase()
+        // Common screen mesh names in MacBook GLB models
         if (
           name.includes("screen") ||
           name.includes("display") ||
           name.includes("monitor") ||
           name.includes("lcd") ||
-          name.includes("glass")
+          name.includes("glass") ||
+          name.includes("bildschirm") ||
+          name.includes("panel") ||
+          name === "object_3" ||
+          name === "object_4" ||
+          name.includes("emissive")
         ) {
           found = child as THREE.Mesh
         }
       }
     })
+    // Debug: log all mesh names to find the right one
+    if (index === 0) {
+      console.log("[v0] MacBook GLB mesh names:", meshes)
+    }
     return found
-  }, [clonedScene])
+  }, [clonedScene, index])
 
   const texture = useTexture(texturePath)
 
   useEffect(() => {
     if (screenMesh) {
-      const mat = new THREE.MeshBasicMaterial({ map: texture })
+      console.log("[v0] Found screen mesh:", screenMesh.name)
+      texture.flipY = false
+      texture.colorSpace = THREE.SRGBColorSpace
+      texture.needsUpdate = true
+      const mat = new THREE.MeshBasicMaterial({ 
+        map: texture,
+        toneMapped: false 
+      })
       ;(screenMesh as THREE.Mesh).material = mat
+    } else if (index === 0) {
+      console.log("[v0] No screen mesh found, applying to first large mesh")
+      // Fallback: find the largest flat mesh (likely the screen)
+      let largestMesh: THREE.Mesh | null = null
+      let maxArea = 0
+      clonedScene.traverse((child) => {
+        if ((child as THREE.Mesh).isMesh) {
+          const mesh = child as THREE.Mesh
+          const geo = mesh.geometry
+          if (geo.boundingBox) {
+            geo.computeBoundingBox()
+          }
+          if (geo.boundingBox) {
+            const size = new THREE.Vector3()
+            geo.boundingBox.getSize(size)
+            const area = size.x * size.y
+            if (area > maxArea) {
+              maxArea = area
+              largestMesh = mesh
+            }
+          }
+        }
+      })
+      if (largestMesh) {
+        console.log("[v0] Using largest mesh as screen:", (largestMesh as THREE.Mesh).name)
+        texture.flipY = false
+        texture.colorSpace = THREE.SRGBColorSpace
+        texture.needsUpdate = true
+        const mat = new THREE.MeshBasicMaterial({ 
+          map: texture,
+          toneMapped: false 
+        })
+        ;(largestMesh as THREE.Mesh).material = mat
+      }
     }
-  }, [screenMesh, texture])
+  }, [screenMesh, texture, clonedScene, index])
 
   return (
     <group
@@ -374,16 +409,18 @@ export function SpielmodeSection() {
         </div>
 
         {/* Right: 3D Canvas */}
-        <div className="absolute inset-0 hidden md:relative md:block md:w-1/2">
-          <Canvas
-            camera={{ position: [0, 0.8, 1.8], fov: 40 }}
-            gl={{ antialias: true, alpha: true }}
-            style={{ background: "transparent" }}
-          >
-            <Suspense fallback={null}>
-              <Scene activeIndex={activeIndex} />
-            </Suspense>
-          </Canvas>
+        <div className="absolute inset-0 hidden md:relative md:flex md:w-1/2 md:items-center md:justify-center" style={{ minHeight: '100vh' }}>
+          <div className="h-full w-full" style={{ height: '120vh', marginTop: '-10vh' }}>
+            <Canvas
+              camera={{ position: [0, 0.5, 2.2], fov: 45 }}
+              gl={{ antialias: true, alpha: true }}
+              style={{ background: "transparent", height: '100%' }}
+            >
+              <Suspense fallback={null}>
+                <Scene activeIndex={activeIndex} />
+              </Suspense>
+            </Canvas>
+          </div>
         </div>
       </div>
     </section>
