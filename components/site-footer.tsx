@@ -40,8 +40,9 @@ export function SiteFooter() {
           </Link>
           <Link
             href="/login"
-            className="text-muted-foreground"
+            className="flex items-center gap-1.5 text-muted-foreground transition-colors hover:text-primary"
           >
+            <LogIn className="h-4 w-4" />
             Login
           </Link>
         </nav>
