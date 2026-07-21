@@ -40,7 +40,7 @@ const servers = [
     version: "1.21.10",
   },
   {
-    name: "xxx",
+    name: "???",
     description:
       "Hierfür hast du nicht die nötigen Berechtigungen ...",
     image: "/images/servers/image.png",
