@@ -333,7 +333,7 @@ export function SpielmodeSection() {
                           ? `${item.color}60`
                           : "var(--border)",
                   }}
-                  aria-label={`Gehe zu ${item.title}`}
+                  aria-label={`Gehe zu: ${item.title === "???" ? item.subtitle : item.title}`}
                 />
               ))}
             </div>
