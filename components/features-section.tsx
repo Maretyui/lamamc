@@ -55,9 +55,6 @@ export function FeaturesSection() {
     <section id="features" className="bg-background px-4 py-24 md:px-8">
       <div className="mx-auto max-w-6xl">
         <div className="mb-16 text-center">
-          {/* <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-primary">
-            Spielmodi
-          </p> */}
           <h2 className="text-primary text-4xl font-bold tracking-tight md:text-5xl">
             Spielmodi
           </h2>
