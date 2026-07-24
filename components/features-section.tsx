@@ -78,7 +78,7 @@ export function FeaturesSection() {
               <div className="relative h-48 overflow-hidden">
                 <Image
                   src={server.image}
-                  alt={`${server.name} Server`}
+                  alt={server.name === "???" ? "Geheimer Server" : `${server.name} Server`}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
                 />
