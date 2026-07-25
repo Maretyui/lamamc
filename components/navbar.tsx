@@ -94,7 +94,7 @@ export function Navbar() {
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           className="rounded-lg p-2 text-foreground transition-colors hover:bg-foreground/10 md:hidden"
-          aria-label={isMobileMenuOpen ? "Menu schließen" : "Menu öffnen"}
+          aria-label={isMobileMenuOpen ? "Menü schließen" : "Menü öffnen"}
         >
           {isMobileMenuOpen ? (
             <X className="h-6 w-6" />
