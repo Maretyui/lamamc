@@ -8,7 +8,6 @@ import { Menu, X, Copy, Check } from "lucide-react"
 const navLinks = [
   { href: "#hero", label: "Home" },
   { href: "#spielmodi", label: "Spielmodi" },
-  { href: "#features", label: "Features" },
   { href: "#team", label: "Team" },
   { href: "#news", label: "News" },
 ]

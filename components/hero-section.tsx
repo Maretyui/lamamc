@@ -66,7 +66,7 @@ export function HeroSection({ latestNews }: HeroSectionProps) {
       </div>
 
       <a
-        href="#features"
+        href="#spielmodi"
         className="absolute bottom-10 z-10 flex animate-bounce-slow cursor-pointer flex-col items-center text-muted-foreground transition-colors hover:text-primary"
         aria-label="Nach unten scrollen"
       >
