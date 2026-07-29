@@ -78,30 +78,6 @@ const spielmodiData = [
   },
 ]
 
-interface MacBookProps {
-  index: number
-  activeIndex: number
-  texturePath: string
-}
-
-function ScreenMesh({ texturePath }: { texturePath: string }) {
-  const texture = useTexture(texturePath)
-  if (texture) {
-    texture.flipY = false
-    texture.colorSpace = THREE.SRGBColorSpace
-  }
-  return (
-    <mesh position={[0, 0.001, 0]}>
-      <planeGeometry args={[1, 1]} />
-      <meshBasicMaterial 
-        map={texture} 
-        transparent 
-        toneMapped={false}
-      />
-    </mesh>
-  )
-}
-
 function MacBook({ index, activeIndex, texturePath }: { index: number; activeIndex: number; texturePath: string }) {
   const groupRef = useRef<THREE.Group>(null)
   const timeRef = useRef(0)
