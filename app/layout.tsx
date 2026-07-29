@@ -13,7 +13,7 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: 'LamaMC.net - Dein Minecraft Netzwerk',
   description:
-    'LamaMC.net ist ein deutsches Minecraft-Netzwerk mit Survival, SkyBlock, BedWars, CityBuild und Minigames. Jetzt mitspielen!',
+    'LamaMC.net ist ein deutsches Minecraft-Netzwerk mit Survival, GoldPVP, Duels und Realms. Jetzt mitspielen!',
   icons: {
     icon: '/images/logo.png',
   },
