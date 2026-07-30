@@ -59,9 +59,9 @@ export function NewsEditor() {
         date: new Date().toISOString().split("T")[0],
         author: "",
       })
-      toast.success("News hinzugefuegt")
+      toast.success("News hinzugefügt")
     } catch {
-      toast.error("Fehler beim Hinzufuegen")
+      toast.error("Fehler beim Hinzufügen")
     } finally {
       setLoading(false)
     }
@@ -90,9 +90,9 @@ export function NewsEditor() {
     try {
       await fetch(`/api/news?id=${id}`, { method: "DELETE" })
       await mutate()
-      toast.success("News geloescht")
+      toast.success("News gelöscht")
     } catch {
-      toast.error("Fehler beim Loeschen")
+      toast.error("Fehler beim Löschen")
     } finally {
       setLoading(false)
     }
@@ -158,7 +158,7 @@ export function NewsEditor() {
               ) : (
                 <Check className="h-4 w-4" />
               )}
-              Hinzufuegen
+              Hinzufügen
             </button>
             <button
               onClick={() => setShowAdd(false)}
@@ -258,7 +258,7 @@ export function NewsEditor() {
                   <button
                     onClick={() => handleDelete(item.id)}
                     className="cursor-pointer rounded-lg p-2 text-muted-foreground transition-colors hover:bg-destructive/10 hover:text-destructive-foreground"
-                    aria-label="Loeschen"
+                    aria-label="Löschen"
                   >
                     <Trash2 className="h-4 w-4" />
                   </button>

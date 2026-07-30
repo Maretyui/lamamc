@@ -59,9 +59,9 @@ export function TeamEditor() {
         image: "https://mc-heads.net/avatar/Maretyui/128",
         link: "",
       })
-      toast.success("Teammitglied hinzugefuegt")
+      toast.success("Teammitglied hinzugefügt")
     } catch {
-      toast.error("Fehler beim Hinzufuegen")
+      toast.error("Fehler beim Hinzufügen")
     } finally {
       setLoading(false)
     }
@@ -90,9 +90,9 @@ export function TeamEditor() {
     try {
       await fetch(`/api/team?id=${id}`, { method: "DELETE" })
       await mutate()
-      toast.success("Teammitglied geloescht")
+      toast.success("Teammitglied gelöscht")
     } catch {
-      toast.error("Fehler beim Loeschen")
+      toast.error("Fehler beim Löschen")
     } finally {
       setLoading(false)
     }
@@ -162,7 +162,7 @@ export function TeamEditor() {
               ) : (
                 <Check className="h-4 w-4" />
               )}
-              Hinzufuegen
+              Hinzufügen
             </button>
             <button
               onClick={() => setShowAdd(false)}
@@ -268,7 +268,7 @@ export function TeamEditor() {
                   <button
                     onClick={() => handleDelete(member.id)}
                     className="cursor-pointer rounded-lg p-2 text-muted-foreground transition-colors hover:bg-destructive/10 hover:text-destructive-foreground"
-                    aria-label="Loeschen"
+                    aria-label="Löschen"
                   >
                     <Trash2 className="h-4 w-4" />
                   </button>
