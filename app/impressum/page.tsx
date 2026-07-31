@@ -37,7 +37,7 @@ export default function ImpressumPage() {
                 <br />
                 Am Edelsfort 28
                 <br />
-                66169 Friedberg-Hessen
+                61169 Friedberg-Hessen
                 <br />
                 Deutschland
               </p>
