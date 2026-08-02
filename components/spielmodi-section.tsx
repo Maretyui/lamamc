@@ -297,6 +297,7 @@ export function SpielmodeSection() {
             <div className="mt-10 flex gap-2">
               {spielmodiData.map((item, index) => (
                 <button
+                  type="button"
                   key={item.id}
                   onClick={() => scrollToIndex(index)}
                   className="h-1.5 rounded-full transition-all duration-300"
