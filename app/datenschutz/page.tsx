@@ -47,7 +47,7 @@ export default function DatenschutzPage() {
               </h2>
               <p className="leading-relaxed text-muted-foreground">
                 Die Datenverarbeitung auf dieser Website erfolgt durch den
-                Websitebetreiber. Die Kontaktdaten koennen Sie dem Impressum
+                Websitebetreiber. Die Kontaktdaten können Sie dem Impressum
                 dieser Website entnehmen.
               </p>
             </section>
@@ -57,9 +57,9 @@ export default function DatenschutzPage() {
                 3. Cookies
               </h2>
               <p className="leading-relaxed text-muted-foreground">
-                Diese Website verwendet Cookies ausschliesslich fuer technisch
+                Diese Website verwendet Cookies ausschließlich für technisch
                 notwendige Zwecke (z.B. Login-Session). Es werden keine
-                Tracking-Cookies oder Cookies fuer Werbezwecke verwendet.
+                Tracking-Cookies oder Cookies für Werbezwecke verwendet.
               </p>
             </section>
 
@@ -80,8 +80,8 @@ export default function DatenschutzPage() {
                 5. Ihre Rechte
               </h2>
               <p className="leading-relaxed text-muted-foreground">
-                Sie haben jederzeit das Recht, unentgeltlich Auskunft ueber
-                Herkunft, Empfaenger und Zweck Ihrer gespeicherten
+                Sie haben jederzeit das Recht, unentgeltlich Auskunft über
+                Herkunft, Empfänger und Zweck Ihrer gespeicherten
                 personenbezogenen Daten zu erhalten. Kontaktieren Sie uns hierzu
                 unter kontakt@lamamc.net.
               </p>

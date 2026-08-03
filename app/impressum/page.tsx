@@ -59,9 +59,9 @@ export default function ImpressumPage() {
                 Haftungsausschluss
               </h2>
               <p className="leading-relaxed text-muted-foreground">
-                Die Inhalte dieser Webseite wurden mit groesster Sorgfalt
-                erstellt. Fuer die Richtigkeit, Vollstaendigkeit und Aktualitaet
-                der Inhalte koennen wir jedoch keine Gewaehr uebernehmen.
+                Die Inhalte dieser Webseite wurden mit größter Sorgfalt
+                erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität
+                der Inhalte können wir jedoch keine Gewähr übernehmen.
               </p>
             </section>
 
