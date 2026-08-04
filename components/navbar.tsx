@@ -73,6 +73,7 @@ export function Navbar() {
         <div className="hidden md:block">
           <button
             onClick={handleCopyIP}
+            aria-live="polite"
             className="flex items-center gap-2 rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/25"
           >
             {isCopied ? (
@@ -126,6 +127,7 @@ export function Navbar() {
                 handleCopyIP()
                 setIsMobileMenuOpen(false)
               }}
+              aria-live="polite"
               className="mt-2 flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all hover:bg-primary/90"
             >
               {isCopied ? (
