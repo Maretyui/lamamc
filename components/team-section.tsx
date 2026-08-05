@@ -64,7 +64,7 @@ export function TeamSection() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-3 flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-primary"
-                  aria-label={`${member.name} Profil`}
+                  aria-label={`${member.name} Profil (öffnet in einem neuen Tab)`}
                 >
                   Profil <ExternalLink className="h-3 w-3" />
                 </a>
