@@ -46,7 +46,7 @@ export default function LoginPage() {
           className="mb-8 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
         >
           <ArrowLeft className="h-4 w-4" />
-          Zurueck zur Startseite
+          Zurück zur Startseite
         </Link>
 
         <div className="rounded-2xl border border-border bg-card p-8">
