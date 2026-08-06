@@ -11,7 +11,7 @@ export default function DatenschutzPage() {
           className="mb-8 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
         >
           <ArrowLeft className="h-4 w-4" />
-          Zurueck zur Startseite
+          Zurück zur Startseite
         </Link>
 
         <div className="mb-8 flex items-center gap-3">
@@ -24,7 +24,7 @@ export default function DatenschutzPage() {
             />
           </div>
           <h1 className="text-3xl font-bold text-foreground">
-            Datenschutzerklaerung
+            Datenschutzerklärung
           </h1>
         </div>
 
@@ -35,8 +35,8 @@ export default function DatenschutzPage() {
                 1. Datenschutz auf einen Blick
               </h2>
               <p className="leading-relaxed text-muted-foreground">
-                Die folgenden Hinweise geben einen einfachen Ueberblick
-                darueber, was mit Ihren personenbezogenen Daten passiert, wenn
+                Die folgenden Hinweise geben einen einfachen Überblick
+                darüber, was mit Ihren personenbezogenen Daten passiert, wenn
                 Sie diese Website besuchen.
               </p>
             </section>
