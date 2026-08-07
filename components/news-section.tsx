@@ -44,6 +44,7 @@ export function NewsSection() {
           <span className="text-sm text-muted-foreground">Sortieren:</span>
           <button
             onClick={() => setSortMode("date")}
+            aria-pressed={sortMode === "date"}
             className={`cursor-pointer rounded-lg px-4 py-2 text-sm font-medium transition-all ${
               sortMode === "date"
                 ? "bg-primary text-primary-foreground"
@@ -54,6 +55,7 @@ export function NewsSection() {
           </button>
           <button
             onClick={() => setSortMode("alpha")}
+            aria-pressed={sortMode === "alpha"}
             className={`cursor-pointer rounded-lg px-4 py-2 text-sm font-medium transition-all ${
               sortMode === "alpha"
                 ? "bg-primary text-primary-foreground"
