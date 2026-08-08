@@ -78,12 +78,12 @@ export function Navbar() {
           >
             {isCopied ? (
               <>
-                <Check className="h-4 w-4" />
+                <Check className="h-4 w-4" aria-hidden="true" />
                 Kopiert!
               </>
             ) : (
               <>
-                <Copy className="h-4 w-4" />
+                <Copy className="h-4 w-4" aria-hidden="true" />
                 Jetzt Spielen
               </>
             )}
@@ -132,12 +132,12 @@ export function Navbar() {
             >
               {isCopied ? (
                 <>
-                  <Check className="h-4 w-4" />
+                  <Check className="h-4 w-4" aria-hidden="true" />
                   Kopiert!
                 </>
               ) : (
                 <>
-                  <Copy className="h-4 w-4" />
+                  <Copy className="h-4 w-4" aria-hidden="true" />
                   Jetzt Spielen
                 </>
               )}
