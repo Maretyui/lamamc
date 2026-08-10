@@ -11,6 +11,7 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://lamamc.net'),
   title: 'LamaMC.net - Dein Minecraft Netzwerk',
   description:
     'LamaMC.net ist ein deutsches Minecraft-Netzwerk mit Survival, GoldPVP, Duels und Realms. Jetzt mitspielen!',
