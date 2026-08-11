@@ -259,15 +259,15 @@ export function SpielmodeSection() {
                       : "pointer-events-none absolute inset-0 translate-y-8 opacity-0"
                   }`}
                 >
-                  <h2
+                  <p
                     className="mb-3 text-xl font-bold md:text-2xl"
                     style={{ color: item.color }}
                   >
                     {item.subtitle}
-                  </h2>
-                  <h3 className="mb-5 text-4xl font-extrabold text-foreground md:text-5xl lg:text-6xl">
+                  </p>
+                  <h2 className="mb-5 text-4xl font-extrabold text-foreground md:text-5xl lg:text-6xl">
                     {item.title}
-                  </h3>
+                  </h2>
                   <p className="mb-2 text-sm font-medium text-muted-foreground">
                     Version: <span className="font-bold text-foreground">{item.version}</span>
                   </p>
