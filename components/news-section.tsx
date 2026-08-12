@@ -40,7 +40,7 @@ export function NewsSection() {
         </div>
 
         <div className="mb-8 flex items-center justify-center gap-2">
-          <ArrowUpDown className="h-4 w-4 text-muted-foreground" />
+          <ArrowUpDown className="h-4 w-4 text-muted-foreground" aria-hidden="true" />
           <span className="text-sm text-muted-foreground">Sortieren:</span>
           <button
             onClick={() => setSortMode("date")}
@@ -83,7 +83,7 @@ export function NewsSection() {
                 </div>
                 <div className="flex shrink-0 flex-col items-end gap-1 text-sm text-muted-foreground">
                   <span className="flex items-center gap-1.5">
-                    <CalendarDays className="h-3.5 w-3.5" />
+                    <CalendarDays className="h-3.5 w-3.5" aria-hidden="true" />
                     <time dateTime={item.date}>
                       {new Date(item.date).toLocaleDateString("de-DE", {
                         day: "2-digit",
@@ -93,7 +93,7 @@ export function NewsSection() {
                     </time>
                   </span>
                   <span className="flex items-center gap-1.5 text-xs">
-                    <User className="h-3 w-3" />
+                    <User className="h-3 w-3" aria-hidden="true" />
                     {item.author}
                   </span>
                 </div>
