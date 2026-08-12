@@ -95,17 +95,20 @@ export function Navbar() {
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           className="rounded-lg p-2 text-foreground transition-colors hover:bg-foreground/10 md:hidden"
           aria-label={isMobileMenuOpen ? "Menü schließen" : "Menü öffnen"}
+          aria-expanded={isMobileMenuOpen}
+          aria-controls="mobile-menu"
         >
           {isMobileMenuOpen ? (
-            <X className="h-6 w-6" />
+            <X className="h-6 w-6" aria-hidden="true" />
           ) : (
-            <Menu className="h-6 w-6" />
+            <Menu className="h-6 w-6" aria-hidden="true" />
           )}
         </button>
       </nav>
 
       {/* Mobile Menu */}
       <div
+        id="mobile-menu"
         className={`overflow-hidden transition-all duration-300 md:hidden ${
           isMobileMenuOpen ? "max-h-96" : "max-h-0"
         }`}
