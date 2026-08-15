@@ -42,7 +42,7 @@ export function SiteFooter() {
             href="/login"
             className="flex items-center gap-1.5 text-muted-foreground transition-colors hover:text-primary"
           >
-            <LogIn className="h-4 w-4" />
+            <LogIn className="h-4 w-4" aria-hidden="true" />
             Login
           </Link>
         </nav>
