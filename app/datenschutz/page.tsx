@@ -10,7 +10,7 @@ export default function DatenschutzPage() {
           href="/"
           className="mb-8 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
         >
-          <ArrowLeft className="h-4 w-4" />
+          <ArrowLeft className="h-4 w-4" aria-hidden="true" />
           Zurück zur Startseite
         </Link>
 
