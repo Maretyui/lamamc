@@ -20,7 +20,7 @@ export function SiteFooter() {
           </span>
         </div>
         <p className="text-sm">
-          {"LamaMC.net ist nicht mit Mojang Studios verbunden. \u00A9 2026 Maretyui"}
+          {`LamaMC.net ist nicht mit Mojang Studios verbunden. \u00A9 ${new Date().getFullYear()} Maretyui`}
         </p>
         <nav
           className="flex flex-wrap items-center justify-center gap-6 text-sm "
