@@ -23,7 +23,7 @@ export function SiteFooter() {
           {`LamaMC.net ist nicht mit Mojang Studios verbunden. \u00A9 ${new Date().getFullYear()} Maretyui`}
         </p>
         <nav
-          className="flex flex-wrap items-center justify-center gap-6 text-sm "
+          className="flex flex-wrap items-center justify-center gap-6 text-sm"
           aria-label="Footer Navigation"
         >
           <Link
@@ -46,7 +46,6 @@ export function SiteFooter() {
             Login
           </Link>
         </nav>
-        
       </div>
     </footer>
   )
