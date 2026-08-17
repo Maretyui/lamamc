@@ -39,7 +39,10 @@ export function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+      <nav
+        aria-label="Hauptnavigation"
+        className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4"
+      >
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3">
           <div className="relative h-10 w-10">
@@ -74,6 +77,7 @@ export function Navbar() {
           <button
             onClick={handleCopyIP}
             aria-live="polite"
+            aria-label="Server-IP LamaMC.net kopieren"
             className="flex items-center gap-2 rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/25"
           >
             {isCopied ? (
@@ -131,6 +135,7 @@ export function Navbar() {
                 setIsMobileMenuOpen(false)
               }}
               aria-live="polite"
+              aria-label="Server-IP LamaMC.net kopieren"
               className="mt-2 flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all hover:bg-primary/90"
             >
               {isCopied ? (
