@@ -70,9 +70,9 @@ export function HeroSection({ latestNews }: HeroSectionProps) {
         className="absolute bottom-10 z-10 flex animate-bounce-slow cursor-pointer flex-col items-center text-muted-foreground transition-colors hover:text-primary"
         aria-label="Nach unten scrollen"
       >
-        <ChevronDown className="h-6 w-6" />
-        <ChevronDown className="-mt-3 h-6 w-6" />
-        <ChevronDown className="-mt-3 h-6 w-6" />
+        <ChevronDown className="h-6 w-6" aria-hidden="true" />
+        <ChevronDown className="-mt-3 h-6 w-6" aria-hidden="true" />
+        <ChevronDown className="-mt-3 h-6 w-6" aria-hidden="true" />
       </a>
     </section>
   )
