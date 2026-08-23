@@ -26,9 +26,16 @@ export function Navbar() {
   }, [])
 
   const handleCopyIP = async () => {
-    await navigator.clipboard.writeText("LamaMC.net")
-    setIsCopied(true)
-    setTimeout(() => setIsCopied(false), 2000)
+    // Clipboard writes can be rejected (denied permission, restricted
+    // browser context, etc.) — only flip to the "Kopiert!" state on
+    // success, otherwise the button would falsely claim it worked.
+    try {
+      await navigator.clipboard.writeText("LamaMC.net")
+      setIsCopied(true)
+      setTimeout(() => setIsCopied(false), 2000)
+    } catch {
+      // Silently ignore — the button simply stays in its default state.
+    }
   }
 
   return (
