@@ -13,8 +13,6 @@ console.warn = (...args: unknown[]) => {
   originalWarn.apply(console, args)
 }
 
-const SERVER_IP = "LamaMC.net"
-
 const spielmodiData = [
   {
     id: 1,
