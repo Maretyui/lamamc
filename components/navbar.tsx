@@ -120,6 +120,7 @@ export function Navbar() {
       {/* Mobile Menu */}
       <div
         id="mobile-menu"
+        inert={!isMobileMenuOpen}
         className={`overflow-hidden transition-all duration-300 md:hidden ${
           isMobileMenuOpen ? "max-h-96" : "max-h-0"
         }`}
