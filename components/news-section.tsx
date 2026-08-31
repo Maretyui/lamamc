@@ -66,6 +66,12 @@ export function NewsSection() {
           </button>
         </div>
 
+        {sorted.length === 0 && (
+          <p className="text-center text-muted-foreground">
+            Es gibt noch keine Neuigkeiten. Schau bald wieder vorbei!
+          </p>
+        )}
+
         <div className="flex flex-col gap-4">
           {sorted.map((item) => (
             <article
