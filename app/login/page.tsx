@@ -66,8 +66,11 @@ export default function LoginPage() {
           </div>
 
           {error && (
-            <div className="mb-4 flex items-center gap-2 rounded-lg bg-destructive/10 px-4 py-3 text-sm text-destructive-foreground">
-              <AlertCircle className="h-4 w-4 shrink-0" />
+            <div
+              className="mb-4 flex items-center gap-2 rounded-lg bg-destructive/10 px-4 py-3 text-sm text-destructive-foreground"
+              role="alert"
+            >
+              <AlertCircle className="h-4 w-4 shrink-0" aria-hidden="true" />
               {error}
             </div>
           )}
