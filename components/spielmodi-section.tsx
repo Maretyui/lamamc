@@ -315,7 +315,10 @@ export function SpielmodeSection() {
           </div>
         </div>
 
-        <div className="absolute inset-0 hidden md:relative md:block md:w-1/2 h-[100vh] z-[1000]">
+        <div
+          className="absolute inset-0 hidden md:relative md:block md:w-1/2 h-[100vh] z-[1000]"
+          aria-hidden="true"
+        >
           <Canvas
             camera={{ position: [0, 0.8, 1.8], fov: 40 }}
             gl={{ antialias: true, alpha: true }}
