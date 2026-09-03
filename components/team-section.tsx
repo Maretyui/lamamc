@@ -45,6 +45,7 @@ export function TeamSection() {
                   alt={`${member.name} Avatar`}
                   className="h-full w-full object-cover"
                   crossOrigin="anonymous"
+                  loading="lazy"
                 />
               </div>
               <h3 className="text-lg font-bold text-card-foreground">
