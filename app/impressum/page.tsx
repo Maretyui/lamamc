@@ -30,7 +30,7 @@ export default function ImpressumPage() {
           <div className="flex flex-col gap-6">
             <section>
               <h2 className="mb-2 text-lg font-semibold text-primary">
-                {"Angaben gem\u00E4\u00DF \u00A7 5 TMG"}
+                {"Angaben gem\u00E4\u00DF \u00A7 5 DDG"}
               </h2>
               <p className="leading-relaxed text-muted-foreground">
                 Paul Fenske
