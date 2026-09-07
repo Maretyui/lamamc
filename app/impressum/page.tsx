@@ -70,8 +70,8 @@ export default function ImpressumPage() {
                 Website-Erstellung
               </h2>
               <p className="leading-relaxed text-muted-foreground">
-                  Diese Webseite wurde von Maik Reinhardt erstellt. 
-                  <a href="https://maretyui.com" className="text-primary hover:underline" target="_blank" rel="noreferrer noopener"> maretyui.com</a>.
+                Diese Webseite wurde von Maik Reinhardt erstellt.{" "}
+                <a href="https://maretyui.com" className="text-primary hover:underline" target="_blank" rel="noreferrer noopener">maretyui.com</a>.
               </p>
             </section>
 
