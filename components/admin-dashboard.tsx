@@ -46,14 +46,14 @@ export function AdminDashboard() {
               href="/"
               className="flex items-center gap-2 rounded-lg border border-border bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground transition-colors hover:bg-secondary/80"
             >
-              <ArrowLeft className="h-4 w-4" />
+              <ArrowLeft className="h-4 w-4" aria-hidden="true" />
               Zur Seite
             </Link>
             <button
               onClick={handleLogout}
               className="flex cursor-pointer items-center gap-2 rounded-lg border border-border bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground transition-all hover:bg-destructive/20 hover:text-destructive-foreground"
             >
-              <LogOut className="h-4 w-4" />
+              <LogOut className="h-4 w-4" aria-hidden="true" />
               Abmelden
             </button>
           </div>
@@ -68,7 +68,7 @@ export function AdminDashboard() {
                 : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
             }`}
           >
-            <Newspaper className="h-4 w-4" />
+            <Newspaper className="h-4 w-4" aria-hidden="true" />
             News
           </button>
           <button
@@ -79,7 +79,7 @@ export function AdminDashboard() {
                 : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
             }`}
           >
-            <Users className="h-4 w-4" />
+            <Users className="h-4 w-4" aria-hidden="true" />
             Team
           </button>
         </div>
