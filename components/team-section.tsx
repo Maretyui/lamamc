@@ -8,7 +8,7 @@ const fetcher = (url: string) => fetch(url).then((r) => r.json())
 
 const roleColors: Record<string, string> = {
   Owner: "bg-primary text-primary-foreground",
-  Moderator: "bg-orange-500/20 text-secondary-foreground",
+  Moderator: "bg-orange-500/20 text-orange-300",
   Developer: "bg-emerald-500/20 text-emerald-300",
   "Public Relations": "bg-sky-500/20 text-sky-300",
 }
