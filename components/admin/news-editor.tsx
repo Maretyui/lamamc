@@ -111,7 +111,7 @@ export function NewsEditor() {
           }}
           className="flex cursor-pointer items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-all hover:bg-primary/90"
         >
-          <Plus className="h-4 w-4" />
+          <Plus className="h-4 w-4" aria-hidden="true" />
           Neue News
         </button>
       </div>
@@ -154,9 +154,9 @@ export function NewsEditor() {
               className="flex cursor-pointer items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-all hover:bg-primary/90 disabled:opacity-50"
             >
               {loading ? (
-                <Loader2 className="h-4 w-4 animate-spin" />
+                <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
               ) : (
-                <Check className="h-4 w-4" />
+                <Check className="h-4 w-4" aria-hidden="true" />
               )}
               Hinzufügen
             </button>
@@ -164,7 +164,7 @@ export function NewsEditor() {
               onClick={() => setShowAdd(false)}
               className="flex cursor-pointer items-center gap-2 rounded-lg bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground transition-all hover:bg-secondary/80"
             >
-              <X className="h-4 w-4" />
+              <X className="h-4 w-4" aria-hidden="true" />
               Abbrechen
             </button>
           </div>
@@ -218,9 +218,9 @@ export function NewsEditor() {
                     className="flex cursor-pointer items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-all hover:bg-primary/90 disabled:opacity-50"
                   >
                     {loading ? (
-                      <Loader2 className="h-4 w-4 animate-spin" />
+                      <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
                     ) : (
-                      <Check className="h-4 w-4" />
+                      <Check className="h-4 w-4" aria-hidden="true" />
                     )}
                     Speichern
                   </button>
@@ -228,7 +228,7 @@ export function NewsEditor() {
                     onClick={cancelEdit}
                     className="flex cursor-pointer items-center gap-2 rounded-lg bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground transition-all hover:bg-secondary/80"
                   >
-                    <X className="h-4 w-4" />
+                    <X className="h-4 w-4" aria-hidden="true" />
                     Abbrechen
                   </button>
                 </div>
@@ -253,14 +253,14 @@ export function NewsEditor() {
                     className="cursor-pointer rounded-lg p-2 text-muted-foreground transition-colors hover:bg-secondary hover:text-primary"
                     aria-label="Bearbeiten"
                   >
-                    <Pencil className="h-4 w-4" />
+                    <Pencil className="h-4 w-4" aria-hidden="true" />
                   </button>
                   <button
                     onClick={() => handleDelete(item.id)}
                     className="cursor-pointer rounded-lg p-2 text-muted-foreground transition-colors hover:bg-destructive/10 hover:text-destructive-foreground"
                     aria-label="Löschen"
                   >
-                    <Trash2 className="h-4 w-4" />
+                    <Trash2 className="h-4 w-4" aria-hidden="true" />
                   </button>
                 </div>
               </div>
