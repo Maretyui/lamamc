@@ -10,13 +10,34 @@ const poppins = Poppins({
   variable: '--font-poppins',
 })
 
+const SITE_TITLE = 'LamaMC.net - Dein Minecraft Netzwerk'
+const SITE_DESCRIPTION =
+  'LamaMC.net ist ein deutsches Minecraft-Netzwerk mit Survival, GoldPVP, Duels und Realms. Jetzt mitspielen!'
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://lamamc.net'),
-  title: 'LamaMC.net - Dein Minecraft Netzwerk',
-  description:
-    'LamaMC.net ist ein deutsches Minecraft-Netzwerk mit Survival, GoldPVP, Duels und Realms. Jetzt mitspielen!',
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
   icons: {
     icon: '/images/logo.png',
+  },
+  // Without these, links dropped in Discord/Twitter (where this server's
+  // invite/site link actually gets shared day to day) unfurl with no
+  // image and a generic fallback title instead of the real branding.
+  openGraph: {
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    url: '/',
+    siteName: 'LamaMC.net',
+    images: ['/images/logo.png'],
+    type: 'website',
+    locale: 'de_DE',
+  },
+  twitter: {
+    card: 'summary',
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: ['/images/logo.png'],
   },
 }
 
