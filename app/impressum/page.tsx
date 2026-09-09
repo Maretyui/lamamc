@@ -1,6 +1,12 @@
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowLeft } from "lucide-react"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Impressum | LamaMC.net",
+  description: "Impressum und rechtliche Anbieterkennzeichnung von LamaMC.net.",
+}
 
 export default function ImpressumPage() {
   return (
