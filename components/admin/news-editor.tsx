@@ -121,12 +121,14 @@ export function NewsEditor() {
           <input
             type="text"
             placeholder="Titel"
+            aria-label="Titel"
             value={form.title}
             onChange={(e) => setForm({ ...form, title: e.target.value })}
             className="rounded-lg border border-border bg-input px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none"
           />
           <textarea
             placeholder="Inhalt"
+            aria-label="Inhalt"
             rows={3}
             value={form.content}
             onChange={(e) => setForm({ ...form, content: e.target.value })}
@@ -135,6 +137,7 @@ export function NewsEditor() {
           <div className="flex gap-3">
             <input
               type="date"
+              aria-label="Datum"
               value={form.date}
               onChange={(e) => setForm({ ...form, date: e.target.value })}
               className="flex-1 rounded-lg border border-border bg-input px-3 py-2 text-sm text-foreground focus:border-primary focus:outline-none"
@@ -142,6 +145,7 @@ export function NewsEditor() {
             <input
               type="text"
               placeholder="Autor"
+              aria-label="Autor"
               value={form.author}
               onChange={(e) => setForm({ ...form, author: e.target.value })}
               className="flex-1 rounded-lg border border-border bg-input px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none"
@@ -181,12 +185,14 @@ export function NewsEditor() {
               <div className="flex flex-col gap-3">
                 <input
                   type="text"
+                  aria-label="Titel"
                   value={form.title}
                   onChange={(e) => setForm({ ...form, title: e.target.value })}
                   className="rounded-lg border border-border bg-input px-3 py-2 text-sm text-foreground focus:border-primary focus:outline-none"
                 />
                 <textarea
                   rows={3}
+                  aria-label="Inhalt"
                   value={form.content}
                   onChange={(e) =>
                     setForm({ ...form, content: e.target.value })
@@ -196,6 +202,7 @@ export function NewsEditor() {
                 <div className="flex gap-3">
                   <input
                     type="date"
+                    aria-label="Datum"
                     value={form.date}
                     onChange={(e) =>
                       setForm({ ...form, date: e.target.value })
@@ -204,6 +211,7 @@ export function NewsEditor() {
                   />
                   <input
                     type="text"
+                    aria-label="Autor"
                     value={form.author}
                     onChange={(e) =>
                       setForm({ ...form, author: e.target.value })

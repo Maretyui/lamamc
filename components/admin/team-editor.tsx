@@ -125,6 +125,7 @@ export function TeamEditor() {
             <input
               type="text"
               placeholder="Name"
+              aria-label="Name"
               value={form.name}
               onChange={(e) => setForm({ ...form, name: e.target.value })}
               className={inputClasses}
@@ -132,6 +133,7 @@ export function TeamEditor() {
             <input
               type="text"
               placeholder="Rolle (z.B. Moderator)"
+              aria-label="Rolle"
               value={form.role}
               onChange={(e) => setForm({ ...form, role: e.target.value })}
               className={inputClasses}
@@ -140,6 +142,7 @@ export function TeamEditor() {
           <input
             type="url"
             placeholder="Avatar-URL"
+            aria-label="Avatar-URL"
             value={form.image}
             onChange={(e) => setForm({ ...form, image: e.target.value })}
             className={inputClasses}
@@ -147,6 +150,7 @@ export function TeamEditor() {
           <input
             type="url"
             placeholder="Profil-Link"
+            aria-label="Profil-Link"
             value={form.link}
             onChange={(e) => setForm({ ...form, link: e.target.value })}
             className={inputClasses}
@@ -186,6 +190,7 @@ export function TeamEditor() {
                 <div className="grid grid-cols-2 gap-3">
                   <input
                     type="text"
+                    aria-label="Name"
                     value={form.name}
                     onChange={(e) =>
                       setForm({ ...form, name: e.target.value })
@@ -194,6 +199,7 @@ export function TeamEditor() {
                   />
                   <input
                     type="text"
+                    aria-label="Rolle"
                     value={form.role}
                     onChange={(e) =>
                       setForm({ ...form, role: e.target.value })
@@ -203,6 +209,7 @@ export function TeamEditor() {
                 </div>
                 <input
                   type="url"
+                  aria-label="Avatar-URL"
                   value={form.image}
                   onChange={(e) =>
                     setForm({ ...form, image: e.target.value })
@@ -211,6 +218,7 @@ export function TeamEditor() {
                 />
                 <input
                   type="url"
+                  aria-label="Profil-Link"
                   value={form.link}
                   onChange={(e) =>
                     setForm({ ...form, link: e.target.value })
