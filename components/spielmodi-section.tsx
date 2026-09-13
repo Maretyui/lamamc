@@ -309,6 +309,7 @@ export function SpielmodeSection() {
                           : "var(--border)",
                   }}
                   aria-label={`Gehe zu: ${item.title === "???" ? item.subtitle : item.title}`}
+                  aria-current={index === activeIndex ? "true" : undefined}
                 />
               ))}
             </div>
