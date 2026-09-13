@@ -39,7 +39,11 @@ export function NewsSection() {
           </h2>
         </div>
 
-        <div className="mb-8 flex items-center justify-center gap-2">
+        <div
+          className="mb-8 flex items-center justify-center gap-2"
+          role="group"
+          aria-label="News sortieren"
+        >
           <ArrowUpDown className="h-4 w-4 text-muted-foreground" aria-hidden="true" />
           <span className="text-sm text-muted-foreground">Sortieren:</span>
           <button
