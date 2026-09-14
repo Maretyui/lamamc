@@ -18,6 +18,9 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://lamamc.net'),
   title: SITE_TITLE,
   description: SITE_DESCRIPTION,
+  alternates: {
+    canonical: '/',
+  },
   icons: {
     icon: [
       { url: '/icon-light-32x32.png', sizes: '32x32', media: '(prefers-color-scheme: light)' },
