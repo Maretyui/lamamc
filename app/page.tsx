@@ -21,13 +21,18 @@ export default function HomePage() {
       >
         Zum Inhalt springen
       </a>
-      <main id="main-content">
+      <main>
         <Navbar />
-        <HeroSection latestNews={latestNews} />
-        <SpielmodeSection />
-        <TeamSection />
-        <NewsSection />
-        <SiteFooter />
+        {/* The skip link needs to land after Navbar, not on <main> itself
+            (which wraps Navbar too) - otherwise "skipping" the nav lands
+            you right back at its own top instead of past it. */}
+        <div id="main-content">
+          <HeroSection latestNews={latestNews} />
+          <SpielmodeSection />
+          <TeamSection />
+          <NewsSection />
+          <SiteFooter />
+        </div>
       </main>
     </>
   )
