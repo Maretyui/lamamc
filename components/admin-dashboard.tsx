@@ -29,6 +29,7 @@ export function AdminDashboard() {
                 src="/images/logo.png"
                 alt="LamaMC Logo"
                 fill
+                sizes="40px"
                 className="object-contain"
               />
             </div>

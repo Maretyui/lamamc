@@ -56,6 +56,7 @@ export default function LoginPage() {
                 src="/images/logo.png"
                 alt="LamaMC Logo"
                 fill
+                sizes="64px"
                 className="object-contain"
               />
             </div>

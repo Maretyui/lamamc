@@ -284,6 +284,7 @@ export function SpielmodeSection() {
                     src={item.image}
                     alt={item.title}
                     fill
+                    sizes="100vw"
                     className={`object-cover transition-opacity duration-500 ${
                       index === activeIndex ? "opacity-100" : "opacity-0"
                     }`}

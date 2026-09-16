@@ -17,6 +17,7 @@ export function HeroSection({ latestNews }: HeroSectionProps) {
           src="/images/hero-bg.jpg"
           alt="LamaMC Minecraft Welt"
           fill
+          sizes="100vw"
           className="object-cover"
           priority
         />
@@ -30,6 +31,7 @@ export function HeroSection({ latestNews }: HeroSectionProps) {
             src="/images/logo.png"
             alt="LamaMC Logo"
             fill
+            sizes="(min-width: 768px) 224px, 160px"
             className="object-contain drop-shadow-2xl"
             priority
           />
