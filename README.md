@@ -13,7 +13,7 @@ Live: https://lamamc.net
 
 ## Content
 
-`components/hero-section.tsx` is the landing hero with the server-IP copy button; `components/navbar.tsx` mirrors that same copy action in both the desktop CTA and the mobile menu. `components/team-section.tsx` and `components/news-section.tsx` fetch their content client-side via SWR rather than being statically bundled, so team/news updates from the admin panel show up without a redeploy. `components/site-footer.tsx` holds the footer nav (Impressum/Datenschutz/Login).
+`components/hero-section.tsx` is the landing hero (logo, tagline, latest-news card); the server-IP copy button actually lives in `components/navbar.tsx`, in both the desktop CTA and the mobile menu. `components/team-section.tsx` and `components/news-section.tsx` fetch their content client-side via SWR rather than being statically bundled, so team/news updates from the admin panel show up without a redeploy. `components/site-footer.tsx` holds the footer nav (Impressum/Datenschutz/Login).
 
 ## Accessibility
 
