@@ -71,7 +71,11 @@ export function NewsSection() {
         </div>
 
         {sorted.length === 0 && (
-          <p className="text-center text-muted-foreground">
+          <p
+            role="status"
+            aria-live="polite"
+            className="text-center text-muted-foreground"
+          >
             Es gibt noch keine Neuigkeiten. Schau bald wieder vorbei!
           </p>
         )}
