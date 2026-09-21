@@ -57,11 +57,13 @@ export function HeroSection({ latestNews }: HeroSectionProps) {
               {latestNews.title}
             </p>
             <p className="mt-1 text-xs text-muted-foreground">
-              {new Date(latestNews.date).toLocaleDateString("de-DE", {
-                day: "2-digit",
-                month: "long",
-                year: "numeric",
-              })}
+              <time dateTime={latestNews.date}>
+                {new Date(latestNews.date).toLocaleDateString("de-DE", {
+                  day: "2-digit",
+                  month: "long",
+                  year: "numeric",
+                })}
+              </time>
             </p>
           </div>
         )}
