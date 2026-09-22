@@ -25,6 +25,18 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  useEffect(() => {
+    if (!isMobileMenuOpen) return
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsMobileMenuOpen(false)
+      }
+    }
+    window.addEventListener("keydown", handleKeyDown)
+    return () => window.removeEventListener("keydown", handleKeyDown)
+  }, [isMobileMenuOpen])
+
   const handleCopyIP = async () => {
     // Clipboard writes can be rejected (denied permission, restricted
     // browser context, etc.) — only flip to the "Kopiert!" state on
