@@ -282,7 +282,7 @@ export function SpielmodeSection() {
                   <Image
                     key={item.id}
                     src={item.image}
-                    alt={item.title}
+                    alt={item.title === "???" ? item.subtitle : item.title}
                     fill
                     sizes="100vw"
                     className={`object-cover transition-opacity duration-500 ${
