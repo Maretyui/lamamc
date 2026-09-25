@@ -10,7 +10,7 @@ const fetcher = (url: string) => fetch(url).then((r) => r.json())
 type SortMode = "date" | "alpha"
 
 export function NewsSection() {
-  const { data: news } = useSWR<NewsItem[]>("/api/news", fetcher, {
+  const { data: news, error: newsError } = useSWR<NewsItem[]>("/api/news", fetcher, {
     fallbackData: [],
   })
   const [sortMode, setSortMode] = useState<SortMode>("date")
@@ -70,14 +70,20 @@ export function NewsSection() {
           </button>
         </div>
 
-        {sorted.length === 0 && (
-          <p
-            role="status"
-            aria-live="polite"
-            className="text-center text-muted-foreground"
-          >
-            Es gibt noch keine Neuigkeiten. Schau bald wieder vorbei!
+        {newsError ? (
+          <p role="alert" className="text-center text-muted-foreground">
+            News konnten nicht geladen werden. Bitte versuche es später erneut.
           </p>
+        ) : (
+          sorted.length === 0 && (
+            <p
+              role="status"
+              aria-live="polite"
+              className="text-center text-muted-foreground"
+            >
+              Es gibt noch keine Neuigkeiten. Schau bald wieder vorbei!
+            </p>
+          )
         )}
 
         <div className="flex flex-col gap-4">
