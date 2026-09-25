@@ -14,7 +14,7 @@ const roleColors: Record<string, string> = {
 }
 
 export function TeamSection() {
-  const { data: team } = useSWR<TeamMember[]>("/api/team", fetcher, {
+  const { data: team, error: teamError } = useSWR<TeamMember[]>("/api/team", fetcher, {
     fallbackData: [],
   })
 
@@ -33,14 +33,20 @@ export function TeamSection() {
           </p>
         </div>
 
-        {team?.length === 0 && (
-          <p
-            role="status"
-            aria-live="polite"
-            className="text-center text-muted-foreground"
-          >
-            Aktuell sind keine Teammitglieder eingetragen. Schau bald wieder vorbei!
+        {teamError ? (
+          <p role="alert" className="text-center text-muted-foreground">
+            Team konnte nicht geladen werden. Bitte versuche es später erneut.
           </p>
+        ) : (
+          team?.length === 0 && (
+            <p
+              role="status"
+              aria-live="polite"
+              className="text-center text-muted-foreground"
+            >
+              Aktuell sind keine Teammitglieder eingetragen. Schau bald wieder vorbei!
+            </p>
+          )
         )}
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
