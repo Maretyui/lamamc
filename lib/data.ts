@@ -29,7 +29,7 @@ const defaultNews: NewsItem[] = [
     id: "4",
     title: "CityBuild Erweiterung",
     content:
-      "Die CityBuild Welt wurde um neue Gebiete erweitert. Sichert euch jetzt die besten Grundstuecke in der neuen Zone!",
+      "Die CityBuild Welt wurde um neue Gebiete erweitert. Sichert euch jetzt die besten Grundstücke in der neuen Zone!",
     date: "2026-02-05",
     author: "Paul",
   },
@@ -37,7 +37,7 @@ const defaultNews: NewsItem[] = [
     id: "5",
     title: "Valentinstag-Event",
     content:
-      "Feiert den Valentinstag mit besonderen Quests und Belohnungen auf allen Servern. Das Event laeuft bis Ende Februar!",
+      "Feiert den Valentinstag mit besonderen Quests und Belohnungen auf allen Servern. Das Event läuft bis Ende Februar!",
     date: "2026-02-01",
     author: "Paul",
   },
