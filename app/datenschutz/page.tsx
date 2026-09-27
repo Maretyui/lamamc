@@ -6,6 +6,11 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Datenschutz | LamaMC.net",
   description: "Datenschutzerklärung von LamaMC.net.",
+  // Without this, the page inherited the root layout's canonical ("/"),
+  // telling search engines this page is a duplicate of the homepage.
+  alternates: {
+    canonical: "/datenschutz",
+  },
 }
 
 export default function DatenschutzPage() {
