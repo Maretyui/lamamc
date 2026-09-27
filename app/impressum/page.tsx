@@ -6,6 +6,11 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Impressum | LamaMC.net",
   description: "Impressum und rechtliche Anbieterkennzeichnung von LamaMC.net.",
+  // Without this, the page inherited the root layout's canonical ("/"),
+  // telling search engines this page is a duplicate of the homepage.
+  alternates: {
+    canonical: "/impressum",
+  },
 }
 
 export default function ImpressumPage() {
