@@ -10,6 +10,7 @@ export function HeroSection({ latestNews }: HeroSectionProps) {
   return (
     <section
       id="hero"
+      aria-labelledby="hero-heading"
       className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden"
     >
       <div className="absolute inset-0 z-0">
@@ -37,7 +38,7 @@ export function HeroSection({ latestNews }: HeroSectionProps) {
           />
         </div>
 
-        <h1 className="text-balance text-5xl font-extrabold tracking-tight md:text-7xl">
+        <h1 id="hero-heading" className="text-balance text-5xl font-extrabold tracking-tight md:text-7xl">
           <span className="text-primary">Lama</span>
           <span className="text-foreground">MC</span>
           <span className="text-muted-foreground">.net</span>
