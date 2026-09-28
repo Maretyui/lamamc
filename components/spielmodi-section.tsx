@@ -228,7 +228,12 @@ export function SpielmodeSection() {
     const windowHeight = window.innerHeight
     const targetScroll =
       sectionTop + (index / spielmodiData.length) * (sectionHeight - windowHeight)
-    window.scrollTo({ top: targetScroll, behavior: "smooth" })
+    // An explicit `behavior: "smooth"` here overrides globals.css's
+    // `scroll-behavior: auto` reduced-motion rule, which only takes effect
+    // when the caller leaves behavior on "auto" - so it has to be checked
+    // directly here too, same as the scrollIntoView calls elsewhere.
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    window.scrollTo({ top: targetScroll, behavior: reduceMotion ? "auto" : "smooth" })
   }
 
   const currentItem = spielmodiData[activeIndex]
