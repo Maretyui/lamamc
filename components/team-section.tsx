@@ -19,13 +19,13 @@ export function TeamSection() {
   })
 
   return (
-    <section id="team" className="bg-secondary/30 px-4 py-24 md:px-8">
+    <section id="team" aria-labelledby="team-heading" className="bg-secondary/30 px-4 py-24 md:px-8">
       <div className="mx-auto max-w-6xl">
         <div className="mb-16 text-center">
           <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-primary">
             Das Team
           </p>
-          <h2 className="text-balance text-4xl font-bold tracking-tight md:text-5xl">
+          <h2 id="team-heading" className="text-balance text-4xl font-bold tracking-tight md:text-5xl">
             Unser Team
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-pretty text-muted-foreground">

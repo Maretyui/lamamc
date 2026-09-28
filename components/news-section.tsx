@@ -28,13 +28,13 @@ export function NewsSection() {
   }, [sortMode, news])
 
   return (
-    <section id="news" className="bg-background px-4 py-24 md:px-8">
+    <section id="news" aria-labelledby="news-heading" className="bg-background px-4 py-24 md:px-8">
       <div className="mx-auto max-w-4xl">
         <div className="mb-12 text-center">
           <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-primary">
             Aktuelles
           </p>
-          <h2 className="text-balance text-4xl font-bold tracking-tight md:text-5xl">
+          <h2 id="news-heading" className="text-balance text-4xl font-bold tracking-tight md:text-5xl">
             Neuigkeiten
           </h2>
         </div>

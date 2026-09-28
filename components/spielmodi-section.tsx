@@ -242,6 +242,10 @@ export function SpielmodeSection() {
     <section
       id="spielmodi"
       ref={containerRef}
+      // aria-label rather than aria-labelledby: every item's <h2> is
+      // rendered simultaneously (only opacity/position differ by
+      // activeIndex), so there's no single static heading id to point to.
+      aria-label="Spielmodi"
       className="relative bg-background"
       style={{ height: `${spielmodiData.length * 100 + 50}vh` }}
     >
