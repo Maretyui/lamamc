@@ -37,7 +37,7 @@ export function TeamEditor() {
     setForm({
       name: "",
       role: "",
-        image: "https://mc-heads.net/avatar/Maretyui/128",
+      image: "https://mc-heads.net/avatar/Maretyui/128",
       link: "",
     })
   }
