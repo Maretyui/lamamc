@@ -86,6 +86,7 @@ export function TeamEditor() {
   }
 
   async function handleDelete(id: string) {
+    if (!window.confirm("Teammitglied wirklich löschen?")) return
     setLoading(true)
     try {
       await fetch(`/api/team?id=${id}`, { method: "DELETE" })

@@ -86,6 +86,7 @@ export function NewsEditor() {
   }
 
   async function handleDelete(id: string) {
+    if (!window.confirm("News wirklich löschen?")) return
     setLoading(true)
     try {
       await fetch(`/api/news?id=${id}`, { method: "DELETE" })
