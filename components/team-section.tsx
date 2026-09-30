@@ -59,9 +59,12 @@ export function TeamSection() {
                 <img
                   src={member.image}
                   alt={`${member.name} Avatar`}
+                  width={80}
+                  height={80}
                   className="h-full w-full object-cover"
                   crossOrigin="anonymous"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
               <h3 className="text-lg font-bold text-card-foreground">
