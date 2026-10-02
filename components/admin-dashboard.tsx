@@ -60,9 +60,10 @@ export function AdminDashboard() {
           </div>
         </div>
 
-        <div className="mb-6 flex gap-2">
+        <div className="mb-6 flex gap-2" role="group" aria-label="Inhaltstyp wählen">
           <button
             onClick={() => setTab("news")}
+            aria-pressed={tab === "news"}
             className={`flex cursor-pointer items-center gap-2 rounded-lg px-5 py-2.5 text-sm font-medium transition-all ${
               tab === "news"
                 ? "bg-primary text-primary-foreground"
@@ -74,6 +75,7 @@ export function AdminDashboard() {
           </button>
           <button
             onClick={() => setTab("team")}
+            aria-pressed={tab === "team"}
             className={`flex cursor-pointer items-center gap-2 rounded-lg px-5 py-2.5 text-sm font-medium transition-all ${
               tab === "team"
                 ? "bg-primary text-primary-foreground"
