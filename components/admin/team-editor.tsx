@@ -46,11 +46,12 @@ export function TeamEditor() {
     if (!form.name || !form.role) return
     setLoading(true)
     try {
-      await fetch("/api/team", {
+      const res = await fetch("/api/team", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       })
+      if (!res.ok) throw new Error("request failed")
       await mutate()
       setShowAdd(false)
       setForm({
@@ -70,11 +71,12 @@ export function TeamEditor() {
   async function handleUpdate(id: string) {
     setLoading(true)
     try {
-      await fetch("/api/team", {
+      const res = await fetch("/api/team", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ id, ...form }),
       })
+      if (!res.ok) throw new Error("request failed")
       await mutate()
       setEditingId(null)
       toast.success("Teammitglied aktualisiert")
@@ -89,7 +91,8 @@ export function TeamEditor() {
     if (!window.confirm("Teammitglied wirklich löschen?")) return
     setLoading(true)
     try {
-      await fetch(`/api/team?id=${id}`, { method: "DELETE" })
+      const res = await fetch(`/api/team?id=${id}`, { method: "DELETE" })
+      if (!res.ok) throw new Error("request failed")
       await mutate()
       toast.success("Teammitglied gelöscht")
     } catch {

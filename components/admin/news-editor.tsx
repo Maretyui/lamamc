@@ -46,11 +46,12 @@ export function NewsEditor() {
     if (!form.title || !form.content) return
     setLoading(true)
     try {
-      await fetch("/api/news", {
+      const res = await fetch("/api/news", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       })
+      if (!res.ok) throw new Error("request failed")
       await mutate()
       setShowAdd(false)
       setForm({
@@ -70,11 +71,12 @@ export function NewsEditor() {
   async function handleUpdate(id: string) {
     setLoading(true)
     try {
-      await fetch("/api/news", {
+      const res = await fetch("/api/news", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ id, ...form }),
       })
+      if (!res.ok) throw new Error("request failed")
       await mutate()
       setEditingId(null)
       toast.success("News aktualisiert")
@@ -89,7 +91,8 @@ export function NewsEditor() {
     if (!window.confirm("News wirklich löschen?")) return
     setLoading(true)
     try {
-      await fetch(`/api/news?id=${id}`, { method: "DELETE" })
+      const res = await fetch(`/api/news?id=${id}`, { method: "DELETE" })
+      if (!res.ok) throw new Error("request failed")
       await mutate()
       toast.success("News gelöscht")
     } catch {
