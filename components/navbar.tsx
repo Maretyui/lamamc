@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Menu, X, Copy, Check } from "lucide-react"
@@ -16,6 +16,7 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isCopied, setIsCopied] = useState(false)
+  const menuToggleRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,6 +32,10 @@ export function Navbar() {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setIsMobileMenuOpen(false)
+        // Without this, focus landed on <body> once the menu became inert -
+        // returning it to the toggle button keeps keyboard users from
+        // losing their place after dismissing the menu.
+        menuToggleRef.current?.focus()
       }
     }
     window.addEventListener("keydown", handleKeyDown)
@@ -116,6 +121,7 @@ export function Navbar() {
 
         {/* Mobile Menu Button */}
         <button
+          ref={menuToggleRef}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           className="rounded-lg p-2 text-foreground transition-colors hover:bg-foreground/10 md:hidden"
           aria-label={isMobileMenuOpen ? "Menü schließen" : "Menü öffnen"}
