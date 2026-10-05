@@ -29,19 +29,19 @@ export function SiteFooter() {
         >
           <Link
             href="/impressum"
-            className="text-muted-foreground transition-colors hover:text-primary"
+            className="rounded-sm text-muted-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
           >
             Impressum
           </Link>
           <Link
             href="/datenschutz"
-            className="text-muted-foreground transition-colors hover:text-primary"
+            className="rounded-sm text-muted-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
           >
             Datenschutz
           </Link>
           <Link
             href="/login"
-            className="flex items-center gap-1.5 text-muted-foreground transition-colors hover:text-primary"
+            className="flex items-center gap-1.5 rounded-sm text-muted-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
           >
             <LogIn className="h-4 w-4" aria-hidden="true" />
             Login
