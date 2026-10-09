@@ -257,7 +257,9 @@ export function TeamEditor() {
                   <img
                     src={member.image}
                     alt={member.name}
-                    className="h-10 w-10 rounded-full"
+                    width={40}
+                    height={40}
+                    className="h-10 w-10 rounded-full object-cover"
                     crossOrigin="anonymous"
                   />
                   <div>
