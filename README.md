@@ -17,7 +17,7 @@ Live: https://lamamc.net
 
 ## Accessibility
 
-Icon-only controls (scroll indicator, sort toggles, copy-IP buttons) carry descriptive `aria-label`s, and the news section's sort buttons use `aria-pressed` to expose their toggled state. The mobile navigation panel (`components/navbar.tsx`) is marked `inert` while collapsed, so its links and copy-IP button are excluded from the tab order and screen-reader navigation until the menu is actually opened — collapsing it with `max-h-0`/`overflow-hidden` alone hides it visually but does not remove it from focus.
+Icon-only controls (scroll indicator, sort toggles, copy-IP buttons) carry descriptive `aria-label`s, and the news section's sort buttons use `aria-pressed` to expose their toggled state. The mobile navigation panel (`components/navbar.tsx`) is marked `inert` while collapsed, so its links and copy-IP button are excluded from the tab order and screen-reader navigation until the menu is actually opened — collapsing it with `max-h-0`/`overflow-hidden` alone hides it visually but does not remove it from focus. The same component also closes the open menu on `Escape` and returns focus to the toggle button, so keyboard users aren't left stranded inside a now-inert panel or dropped onto `<body>`.
 
 ## Spielmodi showcase
 
