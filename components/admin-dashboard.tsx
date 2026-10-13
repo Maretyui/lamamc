@@ -51,6 +51,7 @@ export function AdminDashboard() {
               Zur Seite
             </Link>
             <button
+              type="button"
               onClick={handleLogout}
               className="flex cursor-pointer items-center gap-2 rounded-lg border border-border bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground transition-all hover:bg-destructive/20 hover:text-destructive-foreground"
             >
@@ -62,6 +63,7 @@ export function AdminDashboard() {
 
         <div className="mb-6 flex gap-2" role="group" aria-label="Inhaltstyp wählen">
           <button
+            type="button"
             onClick={() => setTab("news")}
             aria-pressed={tab === "news"}
             className={`flex cursor-pointer items-center gap-2 rounded-lg px-5 py-2.5 text-sm font-medium transition-all ${
@@ -74,6 +76,7 @@ export function AdminDashboard() {
             News
           </button>
           <button
+            type="button"
             onClick={() => setTab("team")}
             aria-pressed={tab === "team"}
             className={`flex cursor-pointer items-center gap-2 rounded-lg px-5 py-2.5 text-sm font-medium transition-all ${

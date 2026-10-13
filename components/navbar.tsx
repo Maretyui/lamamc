@@ -100,6 +100,7 @@ export function Navbar() {
         {/* CTA Button */}
         <div className="hidden md:block">
           <button
+            type="button"
             onClick={handleCopyIP}
             aria-live="polite"
             aria-label="Server-IP LamaMC.net kopieren"
@@ -121,6 +122,7 @@ export function Navbar() {
 
         {/* Mobile Menu Button */}
         <button
+          type="button"
           ref={menuToggleRef}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           className="rounded-lg p-2 text-foreground transition-colors hover:bg-foreground/10 md:hidden"
@@ -157,6 +159,7 @@ export function Navbar() {
               </Link>
             ))}
             <button
+              type="button"
               onClick={() => {
                 handleCopyIP()
                 setIsMobileMenuOpen(false)

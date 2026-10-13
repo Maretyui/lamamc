@@ -47,6 +47,7 @@ export function NewsSection() {
           <ArrowUpDown className="h-4 w-4 text-muted-foreground" aria-hidden="true" />
           <span className="text-sm text-muted-foreground">Sortieren:</span>
           <button
+            type="button"
             onClick={() => setSortMode("date")}
             aria-pressed={sortMode === "date"}
             className={`cursor-pointer rounded-lg px-4 py-2 text-sm font-medium transition-all ${
@@ -58,6 +59,7 @@ export function NewsSection() {
             Nach Datum
           </button>
           <button
+            type="button"
             onClick={() => setSortMode("alpha")}
             aria-pressed={sortMode === "alpha"}
             className={`cursor-pointer rounded-lg px-4 py-2 text-sm font-medium transition-all ${
