@@ -308,7 +308,7 @@ export function SpielmodeSection() {
                   type="button"
                   key={item.id}
                   onClick={() => scrollToIndex(index)}
-                  className="h-1.5 rounded-full transition-all duration-300"
+                  className="h-1.5 rounded-full transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
                   style={{
                     width: index === activeIndex ? "2.5rem" : "1rem",
                     backgroundColor:
