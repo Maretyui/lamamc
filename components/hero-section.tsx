@@ -72,7 +72,7 @@ export function HeroSection({ latestNews }: HeroSectionProps) {
 
       <a
         href="#spielmodi"
-        className="absolute bottom-10 z-10 flex animate-bounce-slow cursor-pointer flex-col items-center text-muted-foreground transition-colors hover:text-primary"
+        className="absolute bottom-10 z-10 flex animate-bounce-slow cursor-pointer flex-col items-center rounded-sm text-muted-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
         aria-label="Nach unten scrollen"
       >
         <ChevronDown className="h-6 w-6" aria-hidden="true" />
