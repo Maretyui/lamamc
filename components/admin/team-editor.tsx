@@ -8,6 +8,13 @@ import type { TeamMember } from "@/lib/types"
 
 const fetcher = (url: string) => fetch(url).then((r) => r.json())
 
+const DEFAULT_FORM = {
+  name: "",
+  role: "",
+  image: "https://mc-heads.net/avatar/Maretyui/128",
+  link: "",
+}
+
 export function TeamEditor() {
   const { data: team, mutate } = useSWR<TeamMember[]>("/api/team", fetcher, {
     fallbackData: [],
@@ -15,12 +22,7 @@ export function TeamEditor() {
   const [editingId, setEditingId] = useState<string | null>(null)
   const [showAdd, setShowAdd] = useState(false)
   const [loading, setLoading] = useState(false)
-  const [form, setForm] = useState({
-    name: "",
-    role: "",
-    image: "https://mc-heads.net/avatar/Maretyui/128",
-    link: "",
-  })
+  const [form, setForm] = useState(DEFAULT_FORM)
 
   function startEdit(member: TeamMember) {
     setEditingId(member.id)
@@ -34,12 +36,7 @@ export function TeamEditor() {
 
   function cancelEdit() {
     setEditingId(null)
-    setForm({
-      name: "",
-      role: "",
-      image: "https://mc-heads.net/avatar/Maretyui/128",
-      link: "",
-    })
+    setForm(DEFAULT_FORM)
   }
 
   async function handleAdd() {
@@ -54,12 +51,7 @@ export function TeamEditor() {
       if (!res.ok) throw new Error("request failed")
       await mutate()
       setShowAdd(false)
-      setForm({
-        name: "",
-        role: "",
-        image: "https://mc-heads.net/avatar/Maretyui/128",
-        link: "",
-      })
+      setForm(DEFAULT_FORM)
       toast.success("Teammitglied hinzugefügt")
     } catch {
       toast.error("Fehler beim Hinzufügen")
