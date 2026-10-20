@@ -45,7 +45,7 @@ export function AdminDashboard() {
           <div className="flex items-center gap-3">
             <Link
               href="/"
-              className="flex items-center gap-2 rounded-lg border border-border bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground transition-colors hover:bg-secondary/80"
+              className="flex items-center gap-2 rounded-lg border border-border bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground transition-colors hover:bg-secondary/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               <ArrowLeft className="h-4 w-4" aria-hidden="true" />
               Zur Seite
@@ -53,7 +53,7 @@ export function AdminDashboard() {
             <button
               type="button"
               onClick={handleLogout}
-              className="flex cursor-pointer items-center gap-2 rounded-lg border border-border bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground transition-all hover:bg-destructive/20 hover:text-destructive-foreground"
+              className="flex cursor-pointer items-center gap-2 rounded-lg border border-border bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground transition-all hover:bg-destructive/20 hover:text-destructive-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               <LogOut className="h-4 w-4" aria-hidden="true" />
               Abmelden
@@ -66,7 +66,7 @@ export function AdminDashboard() {
             type="button"
             onClick={() => setTab("news")}
             aria-pressed={tab === "news"}
-            className={`flex cursor-pointer items-center gap-2 rounded-lg px-5 py-2.5 text-sm font-medium transition-all ${
+            className={`flex cursor-pointer items-center gap-2 rounded-lg px-5 py-2.5 text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
               tab === "news"
                 ? "bg-primary text-primary-foreground"
                 : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
@@ -79,7 +79,7 @@ export function AdminDashboard() {
             type="button"
             onClick={() => setTab("team")}
             aria-pressed={tab === "team"}
-            className={`flex cursor-pointer items-center gap-2 rounded-lg px-5 py-2.5 text-sm font-medium transition-all ${
+            className={`flex cursor-pointer items-center gap-2 rounded-lg px-5 py-2.5 text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
               tab === "team"
                 ? "bg-primary text-primary-foreground"
                 : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
