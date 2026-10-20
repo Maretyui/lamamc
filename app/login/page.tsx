@@ -43,7 +43,7 @@ export default function LoginPage() {
       <div className="w-full max-w-md">
         <Link
           href="/"
-          className="mb-8 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
+          className="mb-8 inline-flex items-center gap-2 rounded-sm text-sm text-muted-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
         >
           <ArrowLeft className="h-4 w-4" aria-hidden="true" />
           Zurück zur Startseite

@@ -50,7 +50,7 @@ export function NewsSection() {
             type="button"
             onClick={() => setSortMode("date")}
             aria-pressed={sortMode === "date"}
-            className={`cursor-pointer rounded-lg px-4 py-2 text-sm font-medium transition-all ${
+            className={`cursor-pointer rounded-lg px-4 py-2 text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 ${
               sortMode === "date"
                 ? "bg-primary text-primary-foreground"
                 : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
@@ -62,7 +62,7 @@ export function NewsSection() {
             type="button"
             onClick={() => setSortMode("alpha")}
             aria-pressed={sortMode === "alpha"}
-            className={`cursor-pointer rounded-lg px-4 py-2 text-sm font-medium transition-all ${
+            className={`cursor-pointer rounded-lg px-4 py-2 text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 ${
               sortMode === "alpha"
                 ? "bg-primary text-primary-foreground"
                 : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
