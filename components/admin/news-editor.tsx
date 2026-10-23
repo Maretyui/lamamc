@@ -8,6 +8,18 @@ import type { NewsItem } from "@/lib/types"
 
 const fetcher = (url: string) => fetch(url).then((r) => r.json())
 
+// A function, not a constant like team-editor.tsx's DEFAULT_FORM - date
+// needs to be today whenever the form actually resets, not frozen to
+// whatever today was when this module first loaded.
+function getDefaultForm() {
+  return {
+    title: "",
+    content: "",
+    date: new Date().toISOString().split("T")[0],
+    author: "",
+  }
+}
+
 export function NewsEditor() {
   const { data: news, mutate } = useSWR<NewsItem[]>("/api/news", fetcher, {
     fallbackData: [],
@@ -15,12 +27,7 @@ export function NewsEditor() {
   const [editingId, setEditingId] = useState<string | null>(null)
   const [showAdd, setShowAdd] = useState(false)
   const [loading, setLoading] = useState(false)
-  const [form, setForm] = useState({
-    title: "",
-    content: "",
-    date: new Date().toISOString().split("T")[0],
-    author: "",
-  })
+  const [form, setForm] = useState(getDefaultForm)
 
   function startEdit(item: NewsItem) {
     setEditingId(item.id)
@@ -34,12 +41,7 @@ export function NewsEditor() {
 
   function cancelEdit() {
     setEditingId(null)
-    setForm({
-      title: "",
-      content: "",
-      date: new Date().toISOString().split("T")[0],
-      author: "",
-    })
+    setForm(getDefaultForm())
   }
 
   async function handleAdd() {
@@ -54,12 +56,7 @@ export function NewsEditor() {
       if (!res.ok) throw new Error("request failed")
       await mutate()
       setShowAdd(false)
-      setForm({
-        title: "",
-        content: "",
-        date: new Date().toISOString().split("T")[0],
-        author: "",
-      })
+      setForm(getDefaultForm())
       toast.success("News hinzugefügt")
     } catch {
       toast.error("Fehler beim Hinzufügen")
