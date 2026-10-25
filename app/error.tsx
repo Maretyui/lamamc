@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { RefreshCw } from 'lucide-react'
 
 // Without this, a runtime error fell through to Next.js's generic error
@@ -13,16 +13,29 @@ export default function Error({
   error: Error & { digest?: string }
   reset: () => void
 }) {
+  const headingRef = useRef<HTMLHeadingElement>(null)
+
   useEffect(() => {
     console.error(error)
+    // This boundary swaps in without a route change or title update, so
+    // there's no normal cue for assistive tech that something happened —
+    // move focus to the heading so it gets announced immediately.
+    headingRef.current?.focus()
   }, [error])
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center gap-6 bg-background px-4 text-center">
+    <main
+      role="alert"
+      className="flex min-h-screen flex-col items-center justify-center gap-6 bg-background px-4 text-center"
+    >
       <p className="text-sm font-semibold uppercase tracking-widest text-primary">
         Fehler
       </p>
-      <h1 className="text-balance text-4xl font-extrabold tracking-tight md:text-6xl">
+      <h1
+        ref={headingRef}
+        tabIndex={-1}
+        className="text-balance text-4xl font-extrabold tracking-tight outline-none md:text-6xl"
+      >
         Etwas ist schiefgelaufen
       </h1>
       <p className="max-w-md text-pretty text-muted-foreground">
