@@ -5,6 +5,12 @@ import { Home } from "lucide-react"
 export const metadata: Metadata = {
   title: "Seite nicht gefunden",
   robots: { index: false, follow: true },
+  // Metadata objects merge per top-level key rather than deep-merging, so
+  // without these a shared link to this page unfurled with the homepage's
+  // full openGraph/twitter title, description, url and image instead of
+  // anything 404-specific.
+  openGraph: { title: "Seite nicht gefunden" },
+  twitter: { title: "Seite nicht gefunden" },
 }
 
 export default function NotFound() {
